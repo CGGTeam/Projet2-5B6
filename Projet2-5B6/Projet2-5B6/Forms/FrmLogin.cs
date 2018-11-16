@@ -31,15 +31,7 @@ namespace Projet2_5B6
 
             Hide();
             Connexion?.Invoke(this, utilisateur);
-            if (WillShow)
-            {
-                WillShow = false;
-                Show();
-            }
-            else
-            {
-                Close();
-            }
+
         }
 
         private bool EstUtilisateurValide()
@@ -56,9 +48,8 @@ namespace Projet2_5B6
 
         public void Deconnexion()
         {
-            this.WillShow = true;
+            this.Show();
+            Console.WriteLine("in deconnexion login");
         }
-
-        public bool WillShow { get; set; }
     }
 }

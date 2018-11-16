@@ -20,12 +20,14 @@ namespace Projet2_5B6
         {
             frmConnexion.Connexion += GestionConnexion;
 
-            Application.Run(frmConnexion);
+            frmConnexion.ShowDialog();
         }
 
         private void GestionConnexion(object sender, Utilisateur util)
         {
             utilisateurConnecte = util;
+            BaseForm formUtilisatteur = new BaseForm();
+            formUtilisatteur.Deconnexion += GestionDeconnexion;
 
             new FrmAcceuil().ShowDialog();
         }
