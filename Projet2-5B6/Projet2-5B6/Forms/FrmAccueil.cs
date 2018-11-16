@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms
 {
-    public partial class FrmAcceuil : BaseForm
+    public partial class FrmAccueil : BaseForm
     {
-        public FrmAcceuil()
+        public FrmAccueil()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Projet2_5B6.Forms
 {
-    partial class FrmAcceuil
+    partial class FrmAccueil
     {
         /// <summary>
         /// Required designer variable.
@@ -56,7 +56,7 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.lblAcceuil);
             this.Name = "FrmAcceuil";
-            this.Text = "FrmAcceuil";
+            this.Text = "Accueil";
             this.Load += new System.EventHandler(this.FrmAcceuil_Load);
             this.Controls.SetChildIndex(this.lblAcceuil, 0);
             this.Controls.SetChildIndex(this.monthCalendar1, 0);

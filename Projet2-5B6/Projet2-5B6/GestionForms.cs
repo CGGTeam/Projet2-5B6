@@ -29,7 +29,7 @@ namespace Projet2_5B6
             BaseForm formUtilisatteur = new BaseForm();
             formUtilisatteur.Deconnexion += GestionDeconnexion;
 
-            new FrmAcceuil().ShowDialog();
+            new FrmAccueil().ShowDialog();
         }
 
         private void GestionDeconnexion(object sender, EventArgs e)

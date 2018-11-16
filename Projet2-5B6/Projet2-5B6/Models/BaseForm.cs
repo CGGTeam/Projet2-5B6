@@ -1,4 +1,5 @@
-﻿using Projet2_5B6.Models;
+﻿using Projet2_5B6.Forms;
+using Projet2_5B6.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,12 @@ namespace Projet2_5B6
             }
         }
         public event EventHandler Deconnexion;
+
+        private void gestionDesEmployésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Hide();
+            new FrmGestionEmployes().ShowDialog();
+        }
     }
     
 }

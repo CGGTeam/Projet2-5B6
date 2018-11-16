@@ -55,17 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FrmGestionEmployes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmGestionEmployes.Designer.cs">
+      <DependentUpon>FrmGestionEmployes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmAcceuil.cs">
+    <Compile Include="Forms\FrmAccueil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAcceuil.Designer.cs">
-      <DependentUpon>FrmAcceuil.cs</DependentUpon>
+    <Compile Include="Forms\FrmAccueil.Designer.cs">
+      <DependentUpon>FrmAccueil.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -78,8 +84,11 @@
     <Compile Include="ADOUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FrmAcceuil.resx">
-      <DependentUpon>FrmAcceuil.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmAccueil.resx">
+      <DependentUpon>FrmAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmGestionEmployes.resx">
+      <DependentUpon>FrmGestionEmployes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>

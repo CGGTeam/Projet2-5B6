@@ -32,6 +32,7 @@
             this.pLACEHOLDERToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDesEmployésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.placeholderMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,8 @@
             // 
             // pLACEHOLDERToolStripMenuItem1
             // 
+            this.pLACEHOLDERToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestionDesEmployésToolStripMenuItem});
             this.pLACEHOLDERToolStripMenuItem1.Name = "pLACEHOLDERToolStripMenuItem1";
             this.pLACEHOLDERToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
             this.pLACEHOLDERToolStripMenuItem1.Text = "Menu";
@@ -67,6 +70,13 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+            // 
+            // gestionDesEmployésToolStripMenuItem
+            // 
+            this.gestionDesEmployésToolStripMenuItem.Name = "gestionDesEmployésToolStripMenuItem";
+            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.gestionDesEmployésToolStripMenuItem.Text = "Gestion des employés";
+            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesEmployésToolStripMenuItem_Click);
             // 
             // BaseForm
             // 
@@ -91,5 +101,6 @@
         private System.Windows.Forms.ToolStripMenuItem pLACEHOLDERToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem déconnexionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDesEmployésToolStripMenuItem;
     }
 }
