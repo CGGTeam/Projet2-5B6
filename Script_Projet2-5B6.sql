@@ -1,4 +1,4 @@
-/**
+﻿/**
 Supprimer toutes les tables existantes
  */
 DECLARE @Sql NVARCHAR(500) DECLARE @Cursor CURSOR
@@ -31,8 +31,8 @@ CREATE TABLE Terrains
     No int PRIMARY KEY NOT NULL,
     Nom nvarchar(50) NOT NULL,
     NombreTrous int NOT NULL,
-    Description nvarchar(50) NOT NULL,
-    Remarque nvarchar(50)
+    Description nvarchar(500) NOT NULL,
+    Remarque nvarchar(100)
 )
 CREATE UNIQUE INDEX Terrains_No_uindex ON Terrains (No)
 /**
@@ -42,7 +42,7 @@ CREATE TABLE TypeAbonnement
 (
     No int PRIMARY KEY NOT NULL,
     Description nvarchar(50) NOT NULL,
-    Remarque nvarchar(50)
+    Remarque nvarchar(100)
 )
 CREATE UNIQUE INDEX TypeAbonnement_No_uindex ON TypeAbonnement (No)
 /**
@@ -54,7 +54,7 @@ CREATE TABLE PrixDepenseAbonnements
     Anne date NOT NULL,
     Prix money NOT NULL,
     DepenseObligatoire money NOT NULL,
-    Remarque nvarchar(50),
+    Remarque nvarchar(100),
     CONSTRAINT PrixDepenseAbonnements_TypeAbonnement_No_fk FOREIGN KEY (NoTypeAbonnement) REFERENCES TypeAbonnement (No),
     primary key (NoTypeAbonnement, Anne)
 )
@@ -66,7 +66,7 @@ CREATE TABLE TypesEmploye
 (
     No int PRIMARY KEY NOT NULL,
     Description nvarchar(50) NOT NULL,
-    Remarque nvarchar(50)
+    Remarque nvarchar(100)
 )
 CREATE UNIQUE INDEX TypesEmploye_No_uindex ON TypesEmploye (No)
 /**
@@ -76,7 +76,7 @@ CREATE TABLE Provinces
 (
     Id varchar(2) PRIMARY KEY NOT NULL,
     Nom nvarchar(50) NOT NULL,
-    Remarque int
+    Remarque nvarchar(100),
 )
 CREATE UNIQUE INDEX Province_Id_uindex ON Provinces (Id)
 /**
@@ -100,7 +100,7 @@ CREATE TABLE Employes
     Courriel nvarchar(50) NOT NULL,
     SalaireHoraire money NOT NULL,
     NoTypeEmploye int NOT NULL,
-    Remarque nvarchar(50) NOT NULL,
+    Remarque nvarchar(100),
     CONSTRAINT Employes_Province_Id_fk FOREIGN KEY (IdProvince) REFERENCES Provinces (Id),
     CONSTRAINT Employes_TypesEmploye_No_fk FOREIGN KEY (NoTypeEmploye) REFERENCES TypesEmploye (No)
 )
@@ -113,7 +113,7 @@ CREATE TABLE Services
     No int PRIMARY KEY NOT NULL,
     TypeService nvarchar(50) NOT NULL,
     NoEmple int NOT NULL,
-    Remarque nvarchar(50),
+    Remarque nvarchar(100),
     CONSTRAINT Services_Employes_No_fk FOREIGN KEY (NoEmple) REFERENCES Employes (No)
 )
 CREATE UNIQUE INDEX Services_No_uindex ON Services (No)
@@ -137,7 +137,7 @@ CREATE TABLE Abonnements
     Cellulaire int NOT NULL,
     Courriel nvarchar(50) NOT NULL,
     NoTypeAbonnement int NOT NULL,
-    Remarque nvarchar(50) NOT NULL,
+    Remarque nvarchar(100) NOT NULL,
     CONSTRAINT Abonnements_Province_Id_fk FOREIGN KEY (IdProvince) REFERENCES Provinces (Id),
     CONSTRAINT Abonnements_TypesAbonnement_No_fk FOREIGN KEY (NoTypeAbonnement) REFERENCES TypeAbonnement (No)
 )
@@ -153,7 +153,7 @@ CREATE TABLE Dependants
     Sexe char NOT NULL,
     DateNaissance date NOT NULL ,
     IdAbonnement nvarchar(50) NOT NULL,
-    Remarque nvarchar(50) NOT NULL,
+    Remarque nvarchar(100) NOT NULL,
     CONSTRAINT Dependants_Abonnements_Id_fk FOREIGN KEY (IdAbonnement) REFERENCES Abonnements (Id),
 )
 CREATE UNIQUE INDEX Dependants_No_uindex ON Dependants (Id)
@@ -167,7 +167,7 @@ CREATE TABLE Depenses
     DateDepense date NOT NULL,
     Montant money NOT NULL,
     NoService int NOT NULL,
-    Remarque nvarchar(50) NOT NULL,
+    Remarque nvarchar(100) NOT NULL,
     CONSTRAINT Depenses_Abonnements_Id_fk FOREIGN KEY (IdAbonnement) REFERENCES Abonnements (Id),
     CONSTRAINT Depenses_Services_No_fk FOREIGN KEY (NoService) REFERENCES Services (No)
 )
@@ -181,7 +181,7 @@ CREATE TABLE PartiesJouees
     NoTerrain int NOT NULL,
     DatePartie date NOT NULL,
     Pointage int NOT NULL,
-    Remarque nvarchar(50),
+    Remarque nvarchar(100),
     CONSTRAINT PartiesJouees_Terrains_No_fk FOREIGN KEY (NoTerrain) REFERENCES Terrains (No),
     CONSTRAINT PartiesJouees_Abonnements_Id_fk FOREIGN KEY (IdAbbonement) REFERENCES Abonnements (Id),
     primary key (IdAbbonement, NoTerrain,DatePartie)
@@ -193,7 +193,7 @@ CREATE TABLE Reabonnements
 (
     IdAbbonement nvarchar(50) NOT NULL,
     DateRenouvellement date NOT NULL,
-    Remarque nvarchar(50),
+    Remarque nvarchar(100),
     CONSTRAINT Reabonnements_Abonnements_Id_fk FOREIGN KEY (IdAbbonement) REFERENCES Abonnements (Id),
     primary key (IdAbbonement, DateRenouvellement)
 )
@@ -252,3 +252,13 @@ Insertion de l'admin
  */
 INSERT INTO Employes (No, MotDePasse, Nom, Prenom, Sexe, Age, NoCivique, Rue, Ville, IdProvince, CodePostal, Telephone, Cellulaire, Courriel, SalaireHoraire, NoTypeEmploye, Remarque)
 VALUES (1,'Password1','admin','admin','A',1,1,'A','A','QC','AAAAAA',1111111111,1111111111,'A@A',1,1,'L''admin du logiciel');
+/**
+Insertion des terrains
+ */
+INSERT INTO Terrains ("No", Nom, NombreTrous, Description)
+VALUES (1,'Golf Bellechasse',18,'Politesse toute naturelle, disant que sa mère le coup terrible frappé sur l''épaule de sa mère lui en eût imposé la crainte, si nouvelle, qu''on doit à ses infirmités ! Au-dessous du sermon, on dit à cette heure de la matinée.'),
+       (2,'Golf l''Auberivière',18,'Entendre, c''est radicalement s''écarter des théories classiques. Reprenez donc, je vais commencer tout de suite les wagons se succédèrent, rapides et sans but.'),
+       (3,'Golf Deux-Montagnes',18,'Barre à gauche cinq, cap au deux-deux-cinq, et sortait déjà la main se joue sur leurs étonnantes culottes en toile de bâche vert-pomme. Ajoutons à ce que mon maître d''avoir l''occasion d''entendre le coron entier était réveillé, rempli d''espèces.'),
+       (4,'Golf La Madeleine - Parcours Le Présidentiel',9,'Décidé à partir tout de suite sans m''y appliquer, sans en demander plus long. Laisser les choses en apparence les rôles et les objets manufacturés relativement chers.'),
+       (5,'Prince de Galles',9,'Livrerait-il le secret que son nom... Alentour, le cercle avait fini par s''y ruiner le corps et sur la place déserte et les ruelles étaient désertes.'),
+       (6,'	Golf île de Montréal - Parcours de l''Irlande',9,'Haut et court, sans étouffement, goûtant la poésie, les beaux-arts et la littérature. Sale maquereau, tu oserais prendre la moitié de ce que le public en général, mais aussi tous les hommes étant capables d''apprendre.');
