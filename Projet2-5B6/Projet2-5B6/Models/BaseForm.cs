@@ -70,6 +70,30 @@ namespace Projet2_5B6
             FindForm()?.Hide();
             new FrmGestionEmployes().ShowDialog();
         }
+
+        private void BaseForm_Load(object sender, EventArgs e)
+        {
+            int[] permissionGestionUtilisateurs = { 1, 2 };
+            int[] permissionGestionAbonnements = { 1, 3, 4 };
+            /**
+             * Permet d'afficher uniquement les menu que l'utilisateur à le droit de consulter selon son type d'employé 
+             * 1=Administrateur , 2=Direction , 3=Propriétaire d’un club , 4=Employé d’un club, 5=Employé Pro-Shop , 6=Employé d’un restaurant , 7=Professeur de golf
+             */
+            int noType = GestionForms.utilisateurConnecte.noType;
+            foreach (ToolStripItem item in menuOption.DropDownItems)
+            {
+                if (item == gestionDesEmployésToolStripMenuItem)
+                {
+                    if (!permissionGestionUtilisateurs.Contains(noType))
+                        item.Visible = false;                  
+                }
+                else if(item == gestionDesAbonnementsToolStripMenuItem)
+                {
+                    if (!permissionGestionAbonnements.Contains(noType))
+                        item.Visible = false;
+                }
+            }
+        }
     }
     
 }

@@ -28,34 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.placeholderMenu = new System.Windows.Forms.MenuStrip();
-            this.pLACEHOLDERToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBar = new System.Windows.Forms.MenuStrip();
+            this.menuOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDesEmployésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDesEmployésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.placeholderMenu.SuspendLayout();
+            this.gestionDesAbonnementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // placeholderMenu
+            // menuBar
             // 
-            this.placeholderMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.placeholderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pLACEHOLDERToolStripMenuItem1,
+            this.menuBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuOption,
             this.déconnexionToolStripMenuItem,
             this.quitterToolStripMenuItem});
-            this.placeholderMenu.Location = new System.Drawing.Point(0, 0);
-            this.placeholderMenu.Name = "placeholderMenu";
-            this.placeholderMenu.Size = new System.Drawing.Size(800, 24);
-            this.placeholderMenu.TabIndex = 0;
-            this.placeholderMenu.Text = "PLACEHOLDER";
+            this.menuBar.Location = new System.Drawing.Point(0, 0);
+            this.menuBar.Name = "menuBar";
+            this.menuBar.Size = new System.Drawing.Size(800, 24);
+            this.menuBar.TabIndex = 0;
+            this.menuBar.Text = "PLACEHOLDER";
             // 
-            // pLACEHOLDERToolStripMenuItem1
+            // menuOption
             // 
-            this.pLACEHOLDERToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionDesEmployésToolStripMenuItem});
-            this.pLACEHOLDERToolStripMenuItem1.Name = "pLACEHOLDERToolStripMenuItem1";
-            this.pLACEHOLDERToolStripMenuItem1.Size = new System.Drawing.Size(50, 20);
-            this.pLACEHOLDERToolStripMenuItem1.Text = "Menu";
+            this.menuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestionDesEmployésToolStripMenuItem,
+            this.gestionDesAbonnementsToolStripMenuItem});
+            this.menuOption.Name = "menuOption";
+            this.menuOption.Size = new System.Drawing.Size(50, 20);
+            this.menuOption.Text = "Menu";
+            // 
+            // gestionDesEmployésToolStripMenuItem
+            // 
+            this.gestionDesEmployésToolStripMenuItem.Name = "gestionDesEmployésToolStripMenuItem";
+            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.gestionDesEmployésToolStripMenuItem.Text = "Gestion des employés";
+            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesEmployésToolStripMenuItem_Click);
             // 
             // déconnexionToolStripMenuItem
             // 
@@ -71,25 +80,25 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
-            // gestionDesEmployésToolStripMenuItem
+            // gestionDesAbonnementsToolStripMenuItem
             // 
-            this.gestionDesEmployésToolStripMenuItem.Name = "gestionDesEmployésToolStripMenuItem";
-            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.gestionDesEmployésToolStripMenuItem.Text = "Gestion des employés";
-            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesEmployésToolStripMenuItem_Click);
+            this.gestionDesAbonnementsToolStripMenuItem.Name = "gestionDesAbonnementsToolStripMenuItem";
+            this.gestionDesAbonnementsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.gestionDesAbonnementsToolStripMenuItem.Text = "Gestion des abonnements";
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.placeholderMenu);
-            this.MainMenuStrip = this.placeholderMenu;
+            this.Controls.Add(this.menuBar);
+            this.MainMenuStrip = this.menuBar;
             this.Name = "BaseForm";
             this.Text = "BaseForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.confirmationClosing);
-            this.placeholderMenu.ResumeLayout(false);
-            this.placeholderMenu.PerformLayout();
+            this.Load += new System.EventHandler(this.BaseForm_Load);
+            this.menuBar.ResumeLayout(false);
+            this.menuBar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,10 +106,11 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip placeholderMenu;
-        private System.Windows.Forms.ToolStripMenuItem pLACEHOLDERToolStripMenuItem1;
+        private System.Windows.Forms.MenuStrip menuBar;
+        private System.Windows.Forms.ToolStripMenuItem menuOption;
         private System.Windows.Forms.ToolStripMenuItem déconnexionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDesEmployésToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionDesAbonnementsToolStripMenuItem;
     }
 }
