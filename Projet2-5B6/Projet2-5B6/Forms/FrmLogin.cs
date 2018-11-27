@@ -14,6 +14,7 @@ namespace Projet2_5B6
     public partial class FrmLogin : Form
     {
         private Utilisateur utilisateur = null;
+        DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
 
         public FrmLogin()
         {
@@ -22,13 +23,14 @@ namespace Projet2_5B6
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            tbPassword.PasswordChar = '*';
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
             if (!EstUtilisateurValide()) return;
 
+            //Ouvre le form d'acceuil
             Hide();
             Connexion?.Invoke(this, utilisateur);
 
@@ -36,11 +38,28 @@ namespace Projet2_5B6
 
         private bool EstUtilisateurValide()
         {
-            // TODO : Valider la connexion
+            int identifiant;
+            if (!Int32.TryParse(tbIdentifiant.Text, out identifiant))
+            {
+                errorProvider1.SetError(btnConnexion, "Mauvais identifiant ou mot de passe");
+                return false;
+            }
+            string password = tbPassword.Text;
 
-            // TODO : Créer le nouvel utilisateur 
-            //(int noUtilisateur, string nomUtilisateur, int typeUtilisateur)
-            utilisateur = new Utilisateur(1, "UtilisateurBidon", 1);
+            var employe = from unEmploye in monDatatContext.Employes
+                          where unEmploye.No == identifiant
+                          && unEmploye.MotDePasse == password
+                          select unEmploye;
+
+            //regrade su la requete linq a retourné un employe
+            if (!employe.Any())
+            {
+                errorProvider1.SetError(btnConnexion,"Mauvais identifiant ou mot de passe");
+                return false;
+            }
+
+            //créer l'utilisateur
+            utilisateur = new Utilisateur(employe.First());
             return true;
         }
 

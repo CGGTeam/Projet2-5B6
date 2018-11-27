@@ -21,7 +21,7 @@ namespace Projet2_5B6.Forms
         private void FrmAcceuil_Load(object sender, EventArgs e)
         {
             String strAcceuil = "";
-            strAcceuil = "Bonjour " + GestionForms.utilisateurConnecte.NomUtilisateur + "!";
+            strAcceuil = "Bonjour " + GestionForms.utilisateurConnecte.nom + "!";
             strAcceuil += "\n\nVous pouvez sélectionner un \nitem dans le menu supérieur! ";
             strAcceuil += "\n\nBonne journée!";
             lblAcceuil.Text = strAcceuil;
