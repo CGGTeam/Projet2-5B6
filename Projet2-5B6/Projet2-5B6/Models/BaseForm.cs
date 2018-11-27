@@ -38,7 +38,7 @@ namespace Projet2_5B6
             if (aAccepte) return;
 
             DialogResult result = MessageBox.Show("Vous êtes sur le point de fermer l'aplication! \n Êtes-vous sûr de vouloir quitter?", "Fermeture de l'aplication", MessageBoxButtons.YesNo,
-                     MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RightAlign);
+                     MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
                 aAccepte = true;
@@ -52,7 +52,7 @@ namespace Projet2_5B6
         private void demandeDeconnexion()
         {
             DialogResult result = MessageBox.Show("Vous êtes sur le point de vous déconnecter! \n Êtes-vous sûr de vouloir fermer votre session?", "Fermeture de la session", MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2, MessageBoxOptions.RightAlign);
+            MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
                 aAccepte = true;

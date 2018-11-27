@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmGestionEmployes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Abonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.DataClassesDataContext.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Dependant.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Depense.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Employe.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.PartiesJouee.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.PrixDepenseAbonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Province.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Reabonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Service.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.Terrain.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.TypeAbonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.Data.TypesEmploye.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

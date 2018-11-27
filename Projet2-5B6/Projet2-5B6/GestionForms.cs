@@ -29,7 +29,9 @@ namespace Projet2_5B6
             BaseForm formUtilisatteur = new BaseForm();
             formUtilisatteur.Deconnexion += GestionDeconnexion;
 
-            new FrmAccueil().ShowDialog();
+            //Possibilité de changer quelle form ouvrir selon le type d'employé
+            if(utilisateurConnecte.noType == 1)
+                new FrmAccueil().ShowDialog();
         }
 
         private void GestionDeconnexion(object sender, EventArgs e)

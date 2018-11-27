@@ -8,16 +8,26 @@ namespace Projet2_5B6.Models
 {
     public class Utilisateur
     {
-        public Utilisateur(int noUtilisateur, string nomUtilisateur, int typeUtilisateur)
+        public Utilisateur(int no, string nom, string prenom, int noType)
         {
-            NoUtilisateur = noUtilisateur;
-            NomUtilisateur = nomUtilisateur;
-            this.typeUtilisateur = typeUtilisateur;
+            this.no = no;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.noType = noType;
         }
 
-        public int NoUtilisateur { get; set; }
-        public string NomUtilisateur { get; set; }
-        public bool EstAdmin => typeUtilisateur == 0;
-        private int typeUtilisateur;
+        public Utilisateur(Employe employe)
+        {
+            this.no = employe.No;
+            this.nom = employe.Nom;
+            this.prenom = employe.Prenom;
+            this.noType = employe.NoTypeEmploye;
+        }
+
+        public int no { get; }
+        public string nom { get; }
+        public string prenom { get; }
+        public int noType { get; }
+
     }
 }

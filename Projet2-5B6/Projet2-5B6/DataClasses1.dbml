@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD5B6TP2_ConstantinMenardS" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=sqlinfo.cgodin.qc.ca;Initial Catalog=BD5B6TP2_ConstantinMenardS;Persist Security Info=True;User ID=5B6Constantin" SettingsObjectName="Projet2_5B6.Properties.Settings" SettingsPropertyName="BD5B6TP2_ConstantinMenardSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Abonnements" Member="Abonnements">
+    <Type Name="Abonnement">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateAbonnement" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexe" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DateNaissance" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NoCivique" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rue" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ville" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdProvince" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="CodePostal" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Telephone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cellulaire" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Courriel" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NoTypeAbonnement" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Abonnement_Dependant" Member="Dependants" ThisKey="Id" OtherKey="IdAbonnement" Type="Dependant" />
+      <Association Name="Abonnement_Depense" Member="Depenses" ThisKey="Id" OtherKey="IdAbonnement" Type="Depense" />
+      <Association Name="Abonnement_PartiesJouee" Member="PartiesJouees" ThisKey="Id" OtherKey="IdAbbonement" Type="PartiesJouee" />
+      <Association Name="Abonnement_Reabonnement" Member="Reabonnements" ThisKey="Id" OtherKey="IdAbbonement" Type="Reabonnement" />
+      <Association Name="Province_Abonnement" Member="Province" ThisKey="IdProvince" OtherKey="Id" Type="Province" IsForeignKey="true" />
+      <Association Name="TypeAbonnement_Abonnement" Member="TypeAbonnement" ThisKey="NoTypeAbonnement" OtherKey="No" Type="TypeAbonnement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypesEmploye" Member="TypesEmployes">
+    <Type Name="TypesEmploye">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="TypesEmploye_Employe" Member="Employes" ThisKey="No" OtherKey="NoTypeEmploye" Type="Employe" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dependants" Member="Dependants">
+    <Type Name="Dependant">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexe" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DateNaissance" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IdAbonnement" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Abonnement_Dependant" Member="Abonnement" ThisKey="IdAbonnement" OtherKey="Id" Type="Abonnement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Depenses" Member="Depenses">
+    <Type Name="Depense">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdAbonnement" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateDepense" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Montant" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="NoService" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Abonnement_Depense" Member="Abonnement" ThisKey="IdAbonnement" OtherKey="Id" Type="Abonnement" IsForeignKey="true" />
+      <Association Name="Service_Depense" Member="Service" ThisKey="NoService" OtherKey="No" Type="Service" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employes" Member="Employes">
+    <Type Name="Employe">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MotDePasse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexe" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoCivique" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rue" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ville" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdProvince" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="CodePostal" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Telephone" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cellulaire" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Courriel" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SalaireHoraire" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="NoTypeEmploye" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Employe_Service" Member="Services" ThisKey="No" OtherKey="NoEmple" Type="Service" />
+      <Association Name="TypesEmploye_Employe" Member="TypesEmploye" ThisKey="NoTypeEmploye" OtherKey="No" Type="TypesEmploye" IsForeignKey="true" />
+      <Association Name="Province_Employe" Member="Province" ThisKey="IdProvince" OtherKey="Id" Type="Province" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PartiesJouees" Member="PartiesJouees">
+    <Type Name="PartiesJouee">
+      <Column Name="IdAbbonement" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoTerrain" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DatePartie" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Pointage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Abonnement_PartiesJouee" Member="Abonnement" ThisKey="IdAbbonement" OtherKey="Id" Type="Abonnement" IsForeignKey="true" />
+      <Association Name="Terrain_PartiesJouee" Member="Terrain" ThisKey="NoTerrain" OtherKey="No" Type="Terrain" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrixDepenseAbonnements" Member="PrixDepenseAbonnements">
+    <Type Name="PrixDepenseAbonnement">
+      <Column Name="NoTypeAbonnement" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Anne" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Prix" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DepenseObligatoire" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="TypeAbonnement_PrixDepenseAbonnement" Member="TypeAbonnement" ThisKey="NoTypeAbonnement" OtherKey="No" Type="TypeAbonnement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Provinces" Member="Provinces">
+    <Type Name="Province">
+      <Column Name="Id" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Province_Abonnement" Member="Abonnements" ThisKey="Id" OtherKey="IdProvince" Type="Abonnement" />
+      <Association Name="Province_Employe" Member="Employes" ThisKey="Id" OtherKey="IdProvince" Type="Employe" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reabonnements" Member="Reabonnements">
+    <Type Name="Reabonnement">
+      <Column Name="IdAbbonement" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DateRenouvellement" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Abonnement_Reabonnement" Member="Abonnement" ThisKey="IdAbbonement" OtherKey="Id" Type="Abonnement" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Services" Member="Services">
+    <Type Name="Service">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeService" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NoEmple" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Service_Depense" Member="Depenses" ThisKey="No" OtherKey="NoService" Type="Depense" />
+      <Association Name="Employe_Service" Member="Employe" ThisKey="NoEmple" OtherKey="No" Type="Employe" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Terrains" Member="Terrains">
+    <Type Name="Terrain">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreTrous" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Terrain_PartiesJouee" Member="PartiesJouees" ThisKey="No" OtherKey="NoTerrain" Type="PartiesJouee" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TypeAbonnement" Member="TypeAbonnements">
+    <Type Name="TypeAbonnement">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="TypeAbonnement_Abonnement" Member="Abonnements" ThisKey="No" OtherKey="NoTypeAbonnement" Type="Abonnement" />
+      <Association Name="TypeAbonnement_PrixDepenseAbonnement" Member="PrixDepenseAbonnements" ThisKey="No" OtherKey="NoTypeAbonnement" Type="PrixDepenseAbonnement" />
+    </Type>
+  </Table>
+</Database>
