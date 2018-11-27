@@ -119,19 +119,18 @@
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Abonnement.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.DataClassesDataContext.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Dependant.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Depense.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Employe.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.PartiesJouee.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.PrixDepenseAbonnement.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Province.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Reabonnement.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Service.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.Terrain.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.TypeAbonnement.datasource" />
-    <None Include="Properties\DataSources\Projet2_5B6.Data.TypesEmploye.datasource" />
+    <None Include="Properties\DataSources\Abonnement.datasource" />
+    <None Include="Properties\DataSources\Dependant.datasource" />
+    <None Include="Properties\DataSources\Depense.datasource" />
+    <None Include="Properties\DataSources\Employe.datasource" />
+    <None Include="Properties\DataSources\PartiesJouee.datasource" />
+    <None Include="Properties\DataSources\PrixDepenseAbonnement.datasource" />
+    <None Include="Properties\DataSources\Province.datasource" />
+    <None Include="Properties\DataSources\Reabonnement.datasource" />
+    <None Include="Properties\DataSources\Service.datasource" />
+    <None Include="Properties\DataSources\Terrain.datasource" />
+    <None Include="Properties\DataSources\TypeAbonnement.datasource" />
+    <None Include="Properties\DataSources\TypesEmploye.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
