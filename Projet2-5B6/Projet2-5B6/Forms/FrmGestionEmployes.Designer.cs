@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeDataGridView = new System.Windows.Forms.DataGridView();
+            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,18 +42,17 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provinceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typesEmployeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // employeBindingSource
@@ -78,15 +79,20 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19});
+            this.dataGridViewTextBoxColumn16});
             this.employeDataGridView.DataSource = this.employeBindingSource;
-            this.employeDataGridView.Location = new System.Drawing.Point(0, 27);
+            this.employeDataGridView.Location = new System.Drawing.Point(-1, 26);
             this.employeDataGridView.Name = "employeDataGridView";
             this.employeDataGridView.Size = new System.Drawing.Size(1327, 464);
             this.employeDataGridView.TabIndex = 2;
+            // 
+            // provinceBindingSource
+            // 
+            this.provinceBindingSource.DataSource = typeof(Projet2_5B6.Province);
+            // 
+            // typesEmployeBindingSource
+            // 
+            this.typesEmployeBindingSource.DataSource = typeof(Projet2_5B6.TypesEmploye);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -145,8 +151,16 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "IdProvince";
+            this.dataGridViewTextBoxColumn10.DataSource = this.provinceBindingSource;
+            this.dataGridViewTextBoxColumn10.DisplayMember = "Nom";
+            this.dataGridViewTextBoxColumn10.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.dataGridViewTextBoxColumn10.HeaderText = "IdProvince";
+            this.dataGridViewTextBoxColumn10.MaxDropDownItems = 1;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn10.ValueMember = "Id";
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -181,26 +195,16 @@
             // dataGridViewTextBoxColumn16
             // 
             this.dataGridViewTextBoxColumn16.DataPropertyName = "NoTypeEmploye";
+            this.dataGridViewTextBoxColumn16.DataSource = this.typesEmployeBindingSource;
+            this.dataGridViewTextBoxColumn16.DisplayMember = "Description";
+            this.dataGridViewTextBoxColumn16.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.dataGridViewTextBoxColumn16.HeaderText = "NoTypeEmploye";
+            this.dataGridViewTextBoxColumn16.MaxDropDownItems = 1;
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Remarque";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Remarque";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "TypesEmploye";
-            this.dataGridViewTextBoxColumn18.HeaderText = "TypesEmploye";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Province";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Province";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn16.ValueMember = "No";
             // 
             // FrmGestionEmployes
             // 
@@ -211,11 +215,11 @@
             this.Name = "FrmGestionEmployes";
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.FrmGestionEmployes_Load);
-            this.Controls.SetChildIndex(this.employeDataGridView, 0);
             ((System.ComponentModel.ISupportInitialize)(this.employeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provinceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typesEmployeBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -223,6 +227,8 @@
 
         private System.Windows.Forms.BindingSource employeBindingSource;
         private System.Windows.Forms.DataGridView employeDataGridView;
+        private System.Windows.Forms.BindingSource provinceBindingSource;
+        private System.Windows.Forms.BindingSource typesEmployeBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -232,15 +238,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn16;
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms
 {
-    public partial class FrmGestionEmployes : BaseForm
+    public partial class FrmGestionEmployes : Form
     {
         DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
         public FrmGestionEmployes()
@@ -20,6 +20,12 @@ namespace Projet2_5B6.Forms
 
         private void FrmGestionEmployes_Load(object sender, EventArgs e)
         {
+            provinceBindingSource.DataSource = from province in monDatatContext.Provinces
+                                               select province;
+
+            typesEmployeBindingSource.DataSource = from typesEmploye in monDatatContext.TypesEmployes
+                                               select typesEmploye;
+
             employeBindingSource.DataSource = from unEmploye in monDatatContext.Employes
                                                 select unEmploye;
         }
