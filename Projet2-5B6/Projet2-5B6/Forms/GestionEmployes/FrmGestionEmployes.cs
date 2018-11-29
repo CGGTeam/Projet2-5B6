@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms
 {
-    public partial class FrmGestionEmployes : BaseForm
+    public partial class FrmGestionEmployes : Form
     {
         DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
         public FrmGestionEmployes()
@@ -23,7 +23,7 @@ namespace Projet2_5B6.Forms
         private void FrmGestionEmployes_Load(object sender, EventArgs e)
         {
 
-            LoadEmployeBindingSource();
+            LoadTypesEmployeBindingSource();
             LoadProvinceBindingSource();
             LoadEmployeBindingSource();
         }
@@ -35,14 +35,28 @@ namespace Projet2_5B6.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            int iid = 0;
 
+            int rowindex = employeDataGridView.CurrentRow.Index;
+
+            iid = Convert.ToInt32(employeDataGridView.Rows[rowindex].Cells[0].Value);
+
+            var modifier = from p in monDatatContext.Employes
+                         where p.No == iid
+                         select p;
+            Employe employeModifier = modifier.First();
+            if(employeModifier.No == 1)
+            {
+                MessageBox.Show("Impossible de modifier l'administrateur");
+                return;
+            }
+
+            new FrmAjoutEmployes(monDatatContext, this, employeModifier).Show();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             int iid = 0;
-
-            Employe employe = new Employe();
 
             int rowindex = employeDataGridView.CurrentRow.Index;
 
@@ -51,7 +65,6 @@ namespace Projet2_5B6.Forms
             var delete = from p in monDatatContext.Employes
                          where p.No == iid
                          select p;
-
 
             monDatatContext.Employes.DeleteAllOnSubmit(delete);
             Enregistrer();

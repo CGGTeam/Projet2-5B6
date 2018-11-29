@@ -80,16 +80,57 @@ namespace Projet2_5B6.Forms.GestionEmployes
 
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
-            int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi );
+            if(employeModifier == null)
+            {
+                AjouterEmploye();
+            }
+            else
+            {
+                ModifierEmploye();
+            }
+        }
+        private void ModifierEmploye()
+        {
+            int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi);
 
             decimal.TryParse(tbSalaireHoraire.Text, out decimal salaire);
 
-            decimal.TryParse(tbTelephone.Text.Trim(new Char[] { ' ', '(', ')', '-' }), out decimal telephone);
+            decimal.TryParse(Regex.Replace(tbTelephone.Text, @"[\(\)\- ]", ""), out decimal telephone);
 
-            decimal.TryParse(tbCellulaire.Text.Trim(new Char[] { ' ', '(', ')', '-' }), out decimal cellulaire);
+            decimal.TryParse(Regex.Replace(tbCellulaire.Text, @"[\(\)\- ]", ""), out decimal cellulaire);
+
+            employeModifier.MotDePasse = tbPassword.Text;
+            employeModifier.Nom = tbNom.Text;
+            employeModifier.Prenom = tbPrenom.Text;
+            employeModifier.Sexe = (ddlSexe.SelectedValue.ToString())[0];
+            employeModifier.Age = Convert.ToInt32(Math.Round(numAge.Value));
+            employeModifier.NoCivique = Convert.ToInt32(Math.Round(numNoCivique.Value));
+            employeModifier.Rue = tbRue.Text;
+            employeModifier.Ville = tbVille.Text;
+            employeModifier.IdProvince = ddlProvince.SelectedValue.ToString();
+            employeModifier.CodePostal = tbCodePostal.Text;
+            employeModifier.Telephone = telephone;
+            employeModifier.Cellulaire = cellulaire;
+            employeModifier.Courriel = tbCourriel.Text;
+            employeModifier.SalaireHoraire = salaire;
+            employeModifier.NoTypeEmploye = noTypeEmploi;
+            employeModifier.Remarque = tbRemarque.Text;
+
+            frmGestion.Enregistrer();
+            this.Hide();
+        }
+        private void AjouterEmploye()
+        {
+            int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi);
+
+            decimal.TryParse(tbSalaireHoraire.Text, out decimal salaire);
+
+            decimal.TryParse(Regex.Replace(tbTelephone.Text, @"[\(\)\- ]", ""), out decimal telephone);
+
+            decimal.TryParse(Regex.Replace(tbCellulaire.Text, @"[\(\)\- ]", ""), out decimal cellulaire);
             Employe employe = new Employe
             {
-                No = 2,
+                No = int.Parse(tbNo.Text),
                 MotDePasse = tbPassword.Text,
                 Nom = tbNom.Text,
                 Prenom = tbPrenom.Text,
@@ -124,6 +165,10 @@ namespace Projet2_5B6.Forms.GestionEmployes
             {
                 LoadEmploye();
             }
+            else
+            {
+                tbNo.Text = FindNextNoAvailable().ToString();
+            }
         }
         private void LoadProvince()
         {
@@ -157,6 +202,41 @@ namespace Projet2_5B6.Forms.GestionEmployes
             lblTitre.Text = "Modification d'un employé";
 
             tbNo.Text = Convert.ToString(employeModifier.No);
+            tbPassword.Text = employeModifier.MotDePasse;
+            tbNom.Text = employeModifier.Nom;
+            tbPrenom.Text = employeModifier.Prenom;
+            ddlSexe.SelectedValue = employeModifier.Sexe;
+            numAge.Value = employeModifier.Age;
+            numNoCivique.Value = employeModifier.NoCivique;
+            tbRue.Text = employeModifier.Rue;
+            tbVille.Text = employeModifier.Ville;
+            ddlProvince.SelectedValue = employeModifier.IdProvince;
+            tbCodePostal.Text = employeModifier.CodePostal;
+            tbTelephone.Text = Convert.ToString(employeModifier.Telephone);
+            tbCellulaire.Text = Convert.ToString(employeModifier.Cellulaire);
+            tbCourriel.Text = employeModifier.Courriel;
+            tbSalaireHoraire.Text = Convert.ToString(employeModifier.SalaireHoraire);
+            ddlTypeEmploye.SelectedValue = employeModifier.NoTypeEmploye;
+            tbRemarque.Text = employeModifier.Remarque;
+        }
+        private int FindNextNoAvailable()
+        {
+
+            var employes = from unEmploye in monDatatContext.Employes
+                                              orderby unEmploye.No ascending
+                                              select unEmploye;
+
+            int plusGrandId = 0;
+
+            foreach (Employe employe in employes.ToList())
+            {
+                if (employe.No > plusGrandId)
+                {
+                    plusGrandId = employe.No;
+                }
+            }
+
+            return plusGrandId + 1;
         }
     }
 }

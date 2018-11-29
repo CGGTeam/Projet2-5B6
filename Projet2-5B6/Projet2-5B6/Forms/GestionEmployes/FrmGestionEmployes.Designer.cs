@@ -29,10 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.employeDataGridView = new System.Windows.Forms.DataGridView();
+            this.typesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
+            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblErrorProvide = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,17 +48,14 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdProvince = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.typesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblErrorProvide = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesEmployeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeBindingSource)).BeginInit();
@@ -75,6 +78,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
+            this.IdProvince,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
@@ -91,6 +95,14 @@
             this.employeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employeDataGridView.Size = new System.Drawing.Size(1128, 464);
             this.employeDataGridView.TabIndex = 2;
+            // 
+            // typesEmployeBindingSource
+            // 
+            this.typesEmployeBindingSource.DataSource = typeof(Projet2_5B6.TypesEmploye);
+            // 
+            // employeBindingSource
+            // 
+            this.employeBindingSource.DataSource = typeof(Projet2_5B6.Employe);
             // 
             // btnAjouter
             // 
@@ -121,6 +133,18 @@
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
+            // provinceBindingSource
+            // 
+            this.provinceBindingSource.DataSource = typeof(Projet2_5B6.Province);
+            // 
+            // lblErrorProvide
+            // 
+            this.lblErrorProvide.AutoSize = true;
+            this.lblErrorProvide.Location = new System.Drawing.Point(565, 510);
+            this.lblErrorProvide.Name = "lblErrorProvide";
+            this.lblErrorProvide.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorProvide.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -185,6 +209,17 @@
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // IdProvince
+            // 
+            this.IdProvince.DataPropertyName = "IdProvince";
+            this.IdProvince.DataSource = this.provinceBindingSource;
+            this.IdProvince.DisplayMember = "Nom";
+            this.IdProvince.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.IdProvince.HeaderText = "IdProvince";
+            this.IdProvince.Name = "IdProvince";
+            this.IdProvince.ReadOnly = true;
+            this.IdProvince.ValueMember = "Id";
+            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "CodePostal";
@@ -195,6 +230,8 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "Telephone";
+            dataGridViewCellStyle1.Format = "(000) 000-0000";
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn12.HeaderText = "Telephone";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -202,6 +239,8 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Cellulaire";
+            dataGridViewCellStyle2.Format = "(000) 000-0000";
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn13.HeaderText = "Cellulaire";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -233,32 +272,12 @@
             this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewTextBoxColumn16.ValueMember = "No";
             // 
-            // typesEmployeBindingSource
-            // 
-            this.typesEmployeBindingSource.DataSource = typeof(Projet2_5B6.TypesEmploye);
-            // 
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "Remarque";
             this.dataGridViewTextBoxColumn17.HeaderText = "Remarque";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // employeBindingSource
-            // 
-            this.employeBindingSource.DataSource = typeof(Projet2_5B6.Employe);
-            // 
-            // provinceBindingSource
-            // 
-            this.provinceBindingSource.DataSource = typeof(Projet2_5B6.Province);
-            // 
-            // lblErrorProvide
-            // 
-            this.lblErrorProvide.AutoSize = true;
-            this.lblErrorProvide.Location = new System.Drawing.Point(565, 510);
-            this.lblErrorProvide.Name = "lblErrorProvide";
-            this.lblErrorProvide.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorProvide.TabIndex = 6;
             // 
             // FrmGestionEmployes
             // 
@@ -291,6 +310,8 @@
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.BindingSource provinceBindingSource;
         private System.Windows.Forms.BindingSource typesEmployeBindingSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.Label lblErrorProvide;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -300,7 +321,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewComboBoxColumn IdProvince;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -308,6 +329,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.Label lblErrorProvide;
     }
 }
