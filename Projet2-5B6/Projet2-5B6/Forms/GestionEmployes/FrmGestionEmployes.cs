@@ -8,7 +8,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
+
 
 namespace Projet2_5B6.Forms
 {
@@ -89,19 +91,23 @@ namespace Projet2_5B6.Forms
         {
             employeBindingSource.EndEdit();
 
-            try
+            using(var transaction = new TransactionScope())
             {
-                monDatatContext.SubmitChanges();
-            }
-            catch (ChangeConflictException)
-            {
-                monDatatContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
-            }
-            catch (Exception ex)
-            {
-                lblErrorProvide.Text = "Une erreure est survenue : " + ex.Message;
-            }
-            LoadEmployeBindingSource();
+                try
+                {
+                    monDatatContext.SubmitChanges();
+                    transaction.Complete();
+                }
+                catch (ChangeConflictException)
+                {
+                    monDatatContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+                }
+                catch (Exception ex)
+                {
+                    lblErrorProvide.Text = "Une erreure est survenue : " + ex.Message;
+                }
+                LoadEmployeBindingSource();
+            }          
         }
     }
 }
