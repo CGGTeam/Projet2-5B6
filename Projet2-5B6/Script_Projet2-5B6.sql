@@ -1,3 +1,4 @@
+use BD5B6TP2_ConstantinMenardS
 /**
 Supprimer toutes les tables existantes
  */
@@ -95,8 +96,8 @@ CREATE TABLE Employes
     Ville nvarchar NOT NULL,
     IdProvince varchar(2) NOT NULL,
     CodePostal varchar(6) NOT NULL,
-    Telephone int,
-    Cellulaire int NOT NULL,
+    Telephone numeric(18,0),
+    Cellulaire numeric(18,0) NOT NULL,
     Courriel nvarchar NOT NULL,
     SalaireHoraire money NOT NULL,
     NoTypeEmploye int NOT NULL,

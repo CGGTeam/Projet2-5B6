@@ -72,7 +72,7 @@ namespace Projet2_5B6
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
-        {
+        {                     
             int[] permissionGestionUtilisateurs = { 1, 2 };
             int[] permissionGestionAbonnements = { 1, 3, 4 };
             /**
@@ -92,6 +92,7 @@ namespace Projet2_5B6
                         item.Visible = false;
                 }
             }
+            
         }
     }
     

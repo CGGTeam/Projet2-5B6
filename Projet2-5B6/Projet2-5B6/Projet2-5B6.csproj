@@ -56,15 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses1.cs">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmGestionEmployes.cs">
+    <Compile Include="Forms\GestionEmployes\FrmAjoutEmployes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmGestionEmployes.Designer.cs">
+    <Compile Include="Forms\GestionEmployes\FrmAjoutEmployes.Designer.cs">
+      <DependentUpon>FrmAjoutEmployes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestionEmployes\FrmGestionEmployes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionEmployes\FrmGestionEmployes.Designer.cs">
       <DependentUpon>FrmGestionEmployes.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseForm.cs">
@@ -93,7 +102,10 @@
     <EmbeddedResource Include="Forms\FrmAccueil.resx">
       <DependentUpon>FrmAccueil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmGestionEmployes.resx">
+    <EmbeddedResource Include="Forms\GestionEmployes\FrmAjoutEmployes.resx">
+      <DependentUpon>FrmAjoutEmployes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionEmployes\FrmGestionEmployes.resx">
       <DependentUpon>FrmGestionEmployes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\BaseForm.resx">

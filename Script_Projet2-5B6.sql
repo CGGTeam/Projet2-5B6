@@ -1,4 +1,5 @@
-﻿/**
+﻿use BD5B6TP2_ConstantinMenardS
+/**
 Supprimer toutes les tables existantes
  */
 DECLARE @Sql NVARCHAR(500) DECLARE @Cursor CURSOR
@@ -95,8 +96,8 @@ CREATE TABLE Employes
     Ville nvarchar(50) NOT NULL,
     IdProvince varchar(2) NOT NULL,
     CodePostal varchar(6) NOT NULL,
-    Telephone int,
-    Cellulaire int NOT NULL,
+    Telephone numeric(18,0) NOT NULL,
+    Cellulaire numeric(18,0) NOT NULL,
     Courriel nvarchar(50) NOT NULL,
     SalaireHoraire money NOT NULL,
     NoTypeEmploye int NOT NULL,
