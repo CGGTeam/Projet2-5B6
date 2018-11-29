@@ -37,14 +37,8 @@ namespace Projet2_5B6.Forms
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            int iid = 0;
-
-            int rowindex = employeDataGridView.CurrentRow.Index;
-
-            iid = Convert.ToInt32(employeDataGridView.Rows[rowindex].Cells[0].Value);
-
             var modifier = from p in monDatatContext.Employes
-                         where p.No == iid
+                         where p == (Employe)employeBindingSource.Current
                          select p;
             Employe employeModifier = modifier.First();
             if(employeModifier.No == 1)
@@ -58,14 +52,8 @@ namespace Projet2_5B6.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-
-            int iid = 0;
-
-            int rowindex = employeDataGridView.CurrentRow.Index;
-
-            iid = Convert.ToInt32(employeDataGridView.Rows[rowindex].Cells[0].Value);
             var delete = from p in monDatatContext.Employes
-                         where p.No == iid
+                         where p == (Employe)employeBindingSource.Current
                          select p;
 
             if (!EmployeEstSupprimable(delete.First())) return;
