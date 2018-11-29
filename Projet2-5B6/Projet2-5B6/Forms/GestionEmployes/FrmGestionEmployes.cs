@@ -58,18 +58,36 @@ namespace Projet2_5B6.Forms
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+
             int iid = 0;
 
             int rowindex = employeDataGridView.CurrentRow.Index;
 
             iid = Convert.ToInt32(employeDataGridView.Rows[rowindex].Cells[0].Value);
-
             var delete = from p in monDatatContext.Employes
                          where p.No == iid
                          select p;
 
-            monDatatContext.Employes.DeleteAllOnSubmit(delete);
-            Enregistrer();
+            if (!EmployeEstSupprimable(delete.First())) return;
+
+            if (ADOUtils.DemandeSupprimer())
+            {
+
+                monDatatContext.Employes.DeleteAllOnSubmit(delete);
+                Enregistrer();
+            }
+
+        }
+        private bool EmployeEstSupprimable(Employe selection)
+        {
+            bool peutEtreSupprime = true;
+            if (selection.No == 1)
+            {
+                MessageBox.Show("Impossible de supprimer l'administrateur", "Alerte", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                peutEtreSupprime = false;
+            }
+
+            return peutEtreSupprime;
         }
         private void LoadEmployeBindingSource()
         {
@@ -106,8 +124,8 @@ namespace Projet2_5B6.Forms
                 {
                     lblErrorProvide.Text = "Une erreure est survenue : " + ex.Message;
                 }
-                LoadEmployeBindingSource();
-            }          
+            }
+            LoadEmployeBindingSource();
         }
     }
 }
