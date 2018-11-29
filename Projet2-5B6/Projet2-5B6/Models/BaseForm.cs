@@ -1,4 +1,5 @@
 ﻿using Projet2_5B6.Forms;
+using Projet2_5B6.Forms.MAJAbonnes;
 using Projet2_5B6.Models;
 using System;
 using System.Collections.Generic;
@@ -93,6 +94,12 @@ namespace Projet2_5B6
                 }
             }
             
+        }
+
+        private void miseÀJourDesAbonnésToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Hide();
+            new FrmMAJAbonnes().ShowDialog();
         }
     }
     

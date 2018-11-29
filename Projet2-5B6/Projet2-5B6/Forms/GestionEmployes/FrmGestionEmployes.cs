@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms
 {
-    public partial class FrmGestionEmployes : Form
+    public partial class FrmGestionEmployes : BaseForm
     {
         DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
         public FrmGestionEmployes()
@@ -41,7 +41,8 @@ namespace Projet2_5B6.Forms
                          where p == (Employe)employeBindingSource.Current
                          select p;
             Employe employeModifier = modifier.First();
-            if(employeModifier.No == 1)
+
+            if (employeModifier.No == 1)
             {
                 MessageBox.Show("Impossible de modifier l'administrateur");
                 return;

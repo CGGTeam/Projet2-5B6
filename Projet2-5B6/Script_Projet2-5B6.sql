@@ -96,7 +96,7 @@ CREATE TABLE Employes
     Ville nvarchar NOT NULL,
     IdProvince varchar(2) NOT NULL,
     CodePostal varchar(6) NOT NULL,
-    Telephone numeric(18,0),
+    Telephone numeric(18,0),NOT NULL,
     Cellulaire numeric(18,0) NOT NULL,
     Courriel nvarchar NOT NULL,
     SalaireHoraire money NOT NULL,

@@ -31,9 +31,10 @@
             this.menuBar = new System.Windows.Forms.MenuStrip();
             this.menuOption = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesEmployésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionDesAbonnementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionDesAbonnementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miseÀJourDesAbonnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,8 @@
             // 
             this.menuOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionDesEmployésToolStripMenuItem,
-            this.gestionDesAbonnementsToolStripMenuItem});
+            this.gestionDesAbonnementsToolStripMenuItem,
+            this.miseÀJourDesAbonnésToolStripMenuItem});
             this.menuOption.Name = "menuOption";
             this.menuOption.Size = new System.Drawing.Size(50, 20);
             this.menuOption.Text = "Menu";
@@ -62,9 +64,15 @@
             // gestionDesEmployésToolStripMenuItem
             // 
             this.gestionDesEmployésToolStripMenuItem.Name = "gestionDesEmployésToolStripMenuItem";
-            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.gestionDesEmployésToolStripMenuItem.Text = "Gestion des employés";
             this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesEmployésToolStripMenuItem_Click);
+            // 
+            // gestionDesAbonnementsToolStripMenuItem
+            // 
+            this.gestionDesAbonnementsToolStripMenuItem.Name = "gestionDesAbonnementsToolStripMenuItem";
+            this.gestionDesAbonnementsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.gestionDesAbonnementsToolStripMenuItem.Text = "Gestion des abonnements";
             // 
             // déconnexionToolStripMenuItem
             // 
@@ -80,11 +88,12 @@
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
-            // gestionDesAbonnementsToolStripMenuItem
+            // miseÀJourDesAbonnésToolStripMenuItem
             // 
-            this.gestionDesAbonnementsToolStripMenuItem.Name = "gestionDesAbonnementsToolStripMenuItem";
-            this.gestionDesAbonnementsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.gestionDesAbonnementsToolStripMenuItem.Text = "Gestion des abonnements";
+            this.miseÀJourDesAbonnésToolStripMenuItem.Name = "miseÀJourDesAbonnésToolStripMenuItem";
+            this.miseÀJourDesAbonnésToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.miseÀJourDesAbonnésToolStripMenuItem.Text = "Mise à jour des abonnés";
+            this.miseÀJourDesAbonnésToolStripMenuItem.Click += new System.EventHandler(this.miseÀJourDesAbonnésToolStripMenuItem_Click);
             // 
             // BaseForm
             // 
@@ -112,5 +121,6 @@
         private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDesEmployésToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDesAbonnementsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miseÀJourDesAbonnésToolStripMenuItem;
     }
 }

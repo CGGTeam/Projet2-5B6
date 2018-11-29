@@ -164,6 +164,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
             if(employeModifier != null)
             {
                 LoadEmploye();
+                ddlTypeEmploye.Enabled = false;
             }
             else
             {
