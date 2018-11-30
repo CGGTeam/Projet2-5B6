@@ -66,6 +66,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.cs" />
+    <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.Designer.cs">
+      <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GestionAbonnements\FrmAbonnement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,8 +135,12 @@
     <Compile Include="ADOUtils.cs" />
     <Compile Include="ObjetsLINQ\IdEtNomCompletAbo.cs" />
     <Compile Include="ObjetsLINQ\InfosAbonnementsDetailles.cs" />
+    <Compile Include="ObjetsLINQ\TypeAbonnementPrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\EnregistrementPartie\FrmInscriptionPartie.resx">
+      <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAccueil.resx">
       <DependentUpon>FrmAccueil.cs</DependentUpon>
     </EmbeddedResource>

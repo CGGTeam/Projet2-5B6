@@ -1,4 +1,5 @@
 ﻿using Projet2_5B6.Forms;
+using Projet2_5B6.Forms.EnregistrementPartie;
 using Projet2_5B6.Forms.GestionAbonnements;
 using Projet2_5B6.Forms.GestionReabonnement;
 using Projet2_5B6.Forms.MAJAbonnes;
@@ -96,12 +97,18 @@ namespace Projet2_5B6
            FindForm()?.Hide();
            new FrmReabonnement().ShowDialog();
         }
-      private void BaseForm_Load(object sender, EventArgs e)
+        private void inscriptionDunePartieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Hide();
+            new FrmInscriptionPartie().ShowDialog();
+        }
+        private void BaseForm_Load(object sender, EventArgs e)
         {                     
             int[] permissionGestionUtilisateurs = { 1, 2 };
             int[] permissionGestionAbonnements = { 1, 3, 4 };
             int[] permissionMAJAbonnement = { 1, 3, 4 };
             int[] permissionModifPrix = { 1, 2, 3};
+            int[] permissionInscriptionPartie = { 1, 3, 4, 5, 6 };
             /**
              * Permet d'afficher uniquement les menu que l'utilisateur à le droit de consulter selon son type d'employé 
              * 1=Administrateur , 2=Direction , 3=Propriétaire d’un club , 4=Employé d’un club, 5=Employé Pro-Shop , 6=Employé d’un restaurant , 7=Professeur de golf
@@ -128,11 +135,12 @@ namespace Projet2_5B6
                     if (!permissionModifPrix.Contains(GestionForms.utilisateurConnecte.noType))
                         item.Visible = false;
                 }
-            }
-            
+                else if (item == inscriptionDunePartieToolStripMenuItem)
+                {
+                    if (!permissionInscriptionPartie.Contains(GestionForms.utilisateurConnecte.noType))
+                        item.Visible = false;
+                }
+            }         
         }
-
-      
-   }
-    
+    }    
 }
