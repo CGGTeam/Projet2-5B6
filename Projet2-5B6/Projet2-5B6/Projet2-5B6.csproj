@@ -90,6 +90,12 @@
     <Compile Include="Forms\GestionEmployes\FrmGestionEmployes.Designer.cs">
       <DependentUpon>FrmGestionEmployes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GestionReabonnement\FrmReabonnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionReabonnement\FrmReabonnement.Designer.cs">
+      <DependentUpon>FrmReabonnement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MAJAbonnes\FrmMAJAbonnes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,7 @@
     <Compile Include="GestionForms.cs" />
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="ADOUtils.cs" />
+    <Compile Include="ObjetsLINQ\IdEtNomCompletAbo.cs" />
     <Compile Include="ObjetsLINQ\InfosAbonnementsDetailles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GestionEmployes\FrmGestionEmployes.resx">
       <DependentUpon>FrmGestionEmployes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionReabonnement\FrmReabonnement.resx">
+      <DependentUpon>FrmReabonnement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MAJAbonnes\FrmMAJAbonnes.resx">
       <DependentUpon>FrmMAJAbonnes.cs</DependentUpon>
@@ -167,6 +177,7 @@
     <None Include="Properties\DataSources\Employe.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PrixDepenseAbonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.IdEtNomCompletAbo.datasource" />
     <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.InfosAbonnementsDetailles.datasource" />
     <None Include="Properties\DataSources\Province.datasource" />
     <None Include="Properties\DataSources\Reabonnement.datasource" />
@@ -194,5 +205,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
