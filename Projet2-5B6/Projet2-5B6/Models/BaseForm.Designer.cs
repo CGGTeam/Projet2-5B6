@@ -33,9 +33,9 @@
             this.gestionDesEmployésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesAbonnementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miseÀJourDesAbonnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,22 +66,30 @@
             // gestionDesEmployésToolStripMenuItem
             // 
             this.gestionDesEmployésToolStripMenuItem.Name = "gestionDesEmployésToolStripMenuItem";
-            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
             this.gestionDesEmployésToolStripMenuItem.Text = "Gestion des employés";
-            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesEmployésToolStripMenuItem_Click);
+            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesAbonnementsToolStripMenuItem_Click);
             // 
             // gestionDesAbonnementsToolStripMenuItem
             // 
             this.gestionDesAbonnementsToolStripMenuItem.Name = "gestionDesAbonnementsToolStripMenuItem";
-            this.gestionDesAbonnementsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.gestionDesAbonnementsToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
             this.gestionDesAbonnementsToolStripMenuItem.Text = "Gestion des abonnements";
+            this.gestionDesAbonnementsToolStripMenuItem.Click += new System.EventHandler(this.gestionDesAbonnementsToolStripMenuItem_Click);
             // 
             // miseÀJourDesAbonnésToolStripMenuItem
             // 
             this.miseÀJourDesAbonnésToolStripMenuItem.Name = "miseÀJourDesAbonnésToolStripMenuItem";
-            this.miseÀJourDesAbonnésToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.miseÀJourDesAbonnésToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
             this.miseÀJourDesAbonnésToolStripMenuItem.Text = "Mise à jour des abonnés";
             this.miseÀJourDesAbonnésToolStripMenuItem.Click += new System.EventHandler(this.miseÀJourDesAbonnésToolStripMenuItem_Click);
+            // 
+            // modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem
+            // 
+            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Name = "modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem";
+            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
+            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Text = "Modification d’un prix et des dépenses obligatoires";
+            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Click += new System.EventHandler(this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem_Click);
             // 
             // déconnexionToolStripMenuItem
             // 
@@ -96,13 +104,6 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
-            // 
-            // modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem
-            // 
-            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Name = "modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem";
-            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
-            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Text = "Modification d’un prix et des dépenses obligatoires";
-            this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem.Click += new System.EventHandler(this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem_Click);
             // 
             // BaseForm
             // 
