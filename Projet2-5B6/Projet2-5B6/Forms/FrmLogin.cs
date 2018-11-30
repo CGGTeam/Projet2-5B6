@@ -48,7 +48,7 @@ namespace Projet2_5B6
 
             var employe = from unEmploye in monDatatContext.Employes
                           where unEmploye.No == identifiant
-                          && unEmploye.MotDePasse == password
+                          //&& unEmploye.MotDePasse == password       retirer pour faciliter le déboguage
                           select unEmploye;
 
             //regrade su la requete linq a retourné un employe

@@ -1,4 +1,7 @@
-﻿/**
+﻿use BD5B6TP2_ConstantinMenardS
+
+SET ANSI_WARNINGS  OFF;
+/**
 Supprimer toutes les tables existantes
  */
 DECLARE @Sql NVARCHAR(500) DECLARE @Cursor CURSOR
@@ -58,7 +61,11 @@ CREATE TABLE PrixDepenseAbonnements
     CONSTRAINT PrixDepenseAbonnements_TypeAbonnement_No_fk FOREIGN KEY (NoTypeAbonnement) REFERENCES TypeAbonnement (No),
     primary key (NoTypeAbonnement, Anne)
 )
+<<<<<<< HEAD
 CREATE UNIQUE INDEX PrixDepenseAbonnements_NoTypeAbonnement_uindex ON PrixDepenseAbonnements (NoTypeAbonnement)
+
+=======
+>>>>>>> b12deba2547acb9dfb20b9dd1cf4e433da36111c
 /**
 Création de la table TypesEmploye
  */
@@ -95,8 +102,8 @@ CREATE TABLE Employes
     Ville nvarchar(50) NOT NULL,
     IdProvince varchar(2) NOT NULL,
     CodePostal varchar(6) NOT NULL,
-    Telephone int,
-    Cellulaire int NOT NULL,
+    Telephone numeric(18,0) NOT NULL,
+    Cellulaire numeric(18,0) NOT NULL,
     Courriel nvarchar(50) NOT NULL,
     SalaireHoraire money NOT NULL,
     NoTypeEmploye int NOT NULL,
@@ -137,7 +144,7 @@ CREATE TABLE Abonnements
     Cellulaire int NOT NULL,
     Courriel nvarchar(50) NOT NULL,
     NoTypeAbonnement int NOT NULL,
-    Remarque nvarchar(100) NOT NULL,
+    Remarque nvarchar(100),
     CONSTRAINT Abonnements_Province_Id_fk FOREIGN KEY (IdProvince) REFERENCES Provinces (Id),
     CONSTRAINT Abonnements_TypesAbonnement_No_fk FOREIGN KEY (NoTypeAbonnement) REFERENCES TypeAbonnement (No)
 )
@@ -262,3 +269,6 @@ VALUES (1,'Golf Bellechasse',18,'Politesse toute naturelle, disant que sa mère 
        (4,'Golf La Madeleine - Parcours Le Présidentiel',9,'Décidé à partir tout de suite sans m''y appliquer, sans en demander plus long. Laisser les choses en apparence les rôles et les objets manufacturés relativement chers.'),
        (5,'Prince de Galles',9,'Livrerait-il le secret que son nom... Alentour, le cercle avait fini par s''y ruiner le corps et sur la place déserte et les ruelles étaient désertes.'),
        (6,'	Golf île de Montréal - Parcours de l''Irlande',9,'Haut et court, sans étouffement, goûtant la poésie, les beaux-arts et la littérature. Sale maquereau, tu oserais prendre la moitié de ce que le public en général, mais aussi tous les hommes étant capables d''apprendre.');
+
+INSERT INTO Abonnements (Id, DateAbonnement, Nom, Prenom, Sexe, DateNaissance, NoCivique, Rue, Ville, IdProvince, CodePostal, Telephone, Cellulaire, Courriel, NoTypeAbonnement, Remarque)
+VALUES (4,'2018','Ginette','Paul','H','1990-10-10',5,'rue','ville', 'QC','H9X4A8',1111111111,2222222222,'courriel@courriel.com',1,'remarque');

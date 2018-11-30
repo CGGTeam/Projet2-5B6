@@ -30,7 +30,7 @@ namespace Projet2_5B6
             formUtilisatteur.Deconnexion += GestionDeconnexion;
 
             //Possibilité de changer quelle form ouvrir selon le type d'employé
-            if(utilisateurConnecte.noType == 1)
+            //if(utilisateurConnecte.noType == 1)
                 new FrmAccueil().ShowDialog();
         }
 
