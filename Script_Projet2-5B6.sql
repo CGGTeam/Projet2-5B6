@@ -62,6 +62,7 @@ CREATE TABLE PrixDepenseAbonnements
     primary key (NoTypeAbonnement, Anne)
 )
 CREATE UNIQUE INDEX PrixDepenseAbonnements_NoTypeAbonnement_uindex ON PrixDepenseAbonnements (NoTypeAbonnement)
+
 /**
 Création de la table TypesEmploye
  */

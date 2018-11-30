@@ -310,7 +310,6 @@
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.BindingSource provinceBindingSource;
         private System.Windows.Forms.BindingSource typesEmployeBindingSource;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.Label lblErrorProvide;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
