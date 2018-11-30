@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassesUtiles\Enfant.cs" />
     <Compile Include="DataClasses1.cs">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
@@ -64,6 +65,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestionAbonnements\FrmAbonnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionAbonnements\FrmAbonnement.Designer.cs">
+      <DependentUpon>FrmAbonnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestionAbonnements\FrmFormulaireAbonnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionAbonnements\FrmFormulaireAbonnement.Designer.cs">
+      <DependentUpon>FrmFormulaireAbonnement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\GestionEmployes\FrmAjoutEmployes.cs">
       <SubType>Form</SubType>
@@ -104,10 +117,17 @@
     <Compile Include="GestionForms.cs" />
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="ADOUtils.cs" />
+    <Compile Include="ObjetsLINQ\InfosAbonnementsDetailles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FrmAccueil.resx">
       <DependentUpon>FrmAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionAbonnements\FrmAbonnement.resx">
+      <DependentUpon>FrmAbonnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestionAbonnements\FrmFormulaireAbonnement.resx">
+      <DependentUpon>FrmFormulaireAbonnement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GestionEmployes\FrmAjoutEmployes.resx">
       <DependentUpon>FrmAjoutEmployes.cs</DependentUpon>
@@ -147,6 +167,7 @@
     <None Include="Properties\DataSources\Employe.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PrixDepenseAbonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.InfosAbonnementsDetailles.datasource" />
     <None Include="Properties\DataSources\Province.datasource" />
     <None Include="Properties\DataSources\Reabonnement.datasource" />
     <None Include="Properties\DataSources\Service.datasource" />
@@ -170,6 +191,8 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

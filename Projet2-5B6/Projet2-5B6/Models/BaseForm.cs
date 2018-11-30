@@ -1,4 +1,5 @@
 ﻿using Projet2_5B6.Forms;
+using Projet2_5B6.Forms.GestionAbonnements;
 using Projet2_5B6.Forms.MAJAbonnes;
 using Projet2_5B6.Models;
 using System;
@@ -101,6 +102,12 @@ namespace Projet2_5B6
             FindForm()?.Hide();
             new FrmMAJAbonnes().ShowDialog();
         }
-    }
+
+      private void gestionDesAbonnementsToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         FindForm()?.Hide();
+         new FrmAbonnement().ShowDialog();
+      }
+   }
     
 }
