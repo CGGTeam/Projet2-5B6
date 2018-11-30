@@ -61,6 +61,11 @@ CREATE TABLE PrixDepenseAbonnements
     CONSTRAINT PrixDepenseAbonnements_TypeAbonnement_No_fk FOREIGN KEY (NoTypeAbonnement) REFERENCES TypeAbonnement (No),
     primary key (NoTypeAbonnement, Anne)
 )
+<<<<<<< HEAD
+CREATE UNIQUE INDEX PrixDepenseAbonnements_NoTypeAbonnement_uindex ON PrixDepenseAbonnements (NoTypeAbonnement)
+
+=======
+>>>>>>> b12deba2547acb9dfb20b9dd1cf4e433da36111c
 /**
 Création de la table TypesEmploye
  */

@@ -102,6 +102,12 @@
     <Compile Include="Forms\MAJAbonnes\FrmMAJAbonnes.Designer.cs">
       <DependentUpon>FrmMAJAbonnes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ModifPrix\FrmModifPrix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModifPrix\FrmModifPrix.Designer.cs">
+      <DependentUpon>FrmModifPrix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MAJAbonnes\FrmMAJAbonnes.resx">
       <DependentUpon>FrmMAJAbonnes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModifPrix\FrmModifPrix.resx">
+      <DependentUpon>FrmModifPrix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
