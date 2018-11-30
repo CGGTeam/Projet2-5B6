@@ -1,4 +1,5 @@
 ﻿using Projet2_5B6.Forms;
+using Projet2_5B6.Forms.EnregistrementPartie;
 using Projet2_5B6.Forms.GestionAbonnements;
 using Projet2_5B6.Forms.GestionReabonnement;
 using Projet2_5B6.Forms.MAJAbonnes;
@@ -99,7 +100,7 @@ namespace Projet2_5B6
         private void inscriptionDunePartieToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm()?.Hide();
-            new FrmReabonnement().ShowDialog();
+            new FrmInscriptionPartie().ShowDialog();
         }
         private void BaseForm_Load(object sender, EventArgs e)
         {                     
