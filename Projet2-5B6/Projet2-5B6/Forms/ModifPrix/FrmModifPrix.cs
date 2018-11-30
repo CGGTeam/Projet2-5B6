@@ -119,13 +119,25 @@ namespace Projet2_5B6.Forms.ModifPrix
                     msgErreur += "Les depenses minimales doivent être entre 0 et 50 000 \n";
                 }
                 row.ErrorText = msgErreur;
-                if (msgErreur != "")
-                {
-                    btnConfirmer.Enabled = false;
-                }
             }
+            btnConfirmer.Enabled = !ContientErreur();
         }
+        private bool ContientErreur()
+        {
+            bool aUneErreur = false;
+            foreach (DataGridViewRow row in this.dataGridView1.Rows)
+            {
+                if (row.ErrorText.Length > 0)
+                {
+                    aUneErreur = true;
+                    break;
+                }
+                if (aUneErreur)
+                    break;
+            }
 
+            return aUneErreur;
+        }
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
             DateTime anneCourante = DateTime.Now;
