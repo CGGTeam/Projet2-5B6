@@ -66,7 +66,9 @@ namespace Projet2_5B6.Forms.ModifPrix
                          int columnIndex = cell.ColumnIndex;
                          string columnName = dataGridView1.Columns[columnIndex].Name;
 
-                         if (columnName == "prixDataGridViewTextBoxColumn" || columnName == "depenseDataGridViewTextBoxColumn")
+                         if (columnName == "prixDataGridViewTextBoxColumn" 
+                            || columnName == "depenseDataGridViewTextBoxColumn"
+                            || columnName == "remarqueDataGridViewTextBoxColumn")
                          {
                              cell.ReadOnly = false;
 
