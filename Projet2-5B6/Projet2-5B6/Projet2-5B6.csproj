@@ -131,6 +131,7 @@
     <Compile Include="ADOUtils.cs" />
     <Compile Include="ObjetsLINQ\IdEtNomCompletAbo.cs" />
     <Compile Include="ObjetsLINQ\InfosAbonnementsDetailles.cs" />
+    <Compile Include="ObjetsLINQ\TypeAbonnementPrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FrmAccueil.resx">
