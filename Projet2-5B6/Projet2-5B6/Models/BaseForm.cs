@@ -1,5 +1,6 @@
 ﻿using Projet2_5B6.Forms;
 using Projet2_5B6.Forms.GestionAbonnements;
+using Projet2_5B6.Forms.GestionReabonnement;
 using Projet2_5B6.Forms.MAJAbonnes;
 using Projet2_5B6.Forms.ModifPrix;
 using Projet2_5B6.Models;
@@ -90,7 +91,12 @@ namespace Projet2_5B6
             FindForm()?.Hide();
             new FrmAbonnement().ShowDialog();
         }
-        private void BaseForm_Load(object sender, EventArgs e)
+        private void gestionDesRéabonnementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           FindForm()?.Hide();
+           new FrmReabonnement().ShowDialog();
+        }
+      private void BaseForm_Load(object sender, EventArgs e)
         {                     
             int[] permissionGestionUtilisateurs = { 1, 2 };
             int[] permissionGestionAbonnements = { 1, 3, 4 };
@@ -125,6 +131,8 @@ namespace Projet2_5B6
             }
             
         }
-    }
+
+      
+   }
     
 }
