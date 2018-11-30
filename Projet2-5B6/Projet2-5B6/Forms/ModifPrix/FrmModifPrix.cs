@@ -47,7 +47,7 @@ namespace Projet2_5B6.Forms.ModifPrix
         private void DisablePrixNonModifiable()
         {
             DateTime anneCourante = DateTime.Now;
-
+            bool estToutAJour = true;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                  DateTime anneDuPrix = (DateTime)row.Cells["anneeDataGridViewTextBoxColumn"].Value;
@@ -71,6 +71,7 @@ namespace Projet2_5B6.Forms.ModifPrix
                             || columnName == "remarqueDataGridViewTextBoxColumn")
                          {
                              cell.ReadOnly = false;
+                            estToutAJour = false;
 
                          }
                          else
@@ -80,6 +81,7 @@ namespace Projet2_5B6.Forms.ModifPrix
                      }
                  }                
             }
+            btnConfirmer.Enabled = !estToutAJour;
         }
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
