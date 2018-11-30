@@ -133,18 +133,34 @@ namespace Projet2_5B6.Forms.GestionAbonnements
          using (TransactionScope tran = new TransactionScope())
          {
             // créer le bon id pour abonné
+
             var maxAboID = from abonnement in data.Abonnements
-                           let id = abonnement.Id.Substring(abonnement.Id.Length - 2, 1)
                            select new
                            {
-                              id = id
+                              id = abonnement.Id
                            };
 
-            var plusGrosID = maxAboID.Max(id => id.id);
-            int intLePlusGrosID = int.Parse(plusGrosID) + 1;
-
+            int intPlusGrosId = maxAboID.Count() + 1;
+            
+            
             // créer le nouvel abonné
-            string idNouvelAbonne = tbNomAbo.Text + intLePlusGrosID + "P";
+            string idNouvelAbonne = tbNomAbo.Text + intPlusGrosId + "P";
+
+            System.Diagnostics.Debug.WriteLine(idNouvelAbonne);
+            System.Diagnostics.Debug.WriteLine(tbNomAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine(tbPrenomAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine((cbSexeAbo.Text == "Homme") ? 'H' : 'F');
+            System.Diagnostics.Debug.WriteLine(dateNaissanceAbo.Value);
+            System.Diagnostics.Debug.WriteLine(int.Parse(tbCiviqueAbo.Text.Trim()));
+            System.Diagnostics.Debug.WriteLine(tbRueAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine(tbVilleAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine(cbProvinceAbo.SelectedValue.ToString());
+            System.Diagnostics.Debug.WriteLine(tbPostalAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine(int.Parse(tbTelephoneAbo.Text.Replace("-", "")));
+            System.Diagnostics.Debug.WriteLine(int.Parse(tbCellAbo.Text.Replace("-", "")));
+            System.Diagnostics.Debug.WriteLine(tbCourrielAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine(this.noTypeAbonnement);
+            System.Diagnostics.Debug.WriteLine(tbRemarqueAbo.Text.Trim());
 
             var nouvelAbonnement = new Projet2_5B6.Abonnement
             {
@@ -170,7 +186,7 @@ namespace Projet2_5B6.Forms.GestionAbonnements
             // si couple
             if (this.noTypeAbonnement >= 3)
             {
-               string idConjoint = tbNomConjoint.Text.Trim() + intLePlusGrosID + ((cbSexeConjoint.Text == "Homme") ? 'H' : 'F') + "0";
+               string idConjoint = tbNomConjoint.Text.Trim() + intPlusGrosId + ((cbSexeConjoint.Text == "Homme") ? 'H' : 'F') + "0";
 
                var nouveauConjoint = new Projet2_5B6.Dependant
                {
@@ -195,7 +211,7 @@ namespace Projet2_5B6.Forms.GestionAbonnements
                {
                   var nouvelEnfant = new Projet2_5B6.Dependant
                   {
-                     Id = enf.id = tbNomAbo.Text.Trim() + intLePlusGrosID + "E" + index,
+                     Id = enf.id = tbNomAbo.Text.Trim() + intPlusGrosId + "E" + index,
                      Nom = enf.nom,
                      Prenom = enf.prenom,
                      Sexe = enf.sexe,
@@ -489,8 +505,17 @@ namespace Projet2_5B6.Forms.GestionAbonnements
 
          if (valide)
          {
-            enregistrerDansLaBD();
-            this.Close();
+            try
+            {
+               enregistrerDansLaBD();
+               MessageBox.Show("L'abonnement s'est effectué avec succès !", "Enregistrement", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               this.Close();
+            }
+            catch
+            {
+               MessageBox.Show("Une erreur s'est glissée lors de l'ajout à la base de données...", "Erreur lors de l'enregistrement", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
          }
 
 

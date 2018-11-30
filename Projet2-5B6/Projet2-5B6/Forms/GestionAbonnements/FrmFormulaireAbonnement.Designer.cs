@@ -678,6 +678,7 @@
          // tbCiviqueAbo
          // 
          this.tbCiviqueAbo.Location = new System.Drawing.Point(470, 218);
+         this.tbCiviqueAbo.MaxLength = 4;
          this.tbCiviqueAbo.Name = "tbCiviqueAbo";
          this.tbCiviqueAbo.Size = new System.Drawing.Size(52, 20);
          this.tbCiviqueAbo.TabIndex = 109;
