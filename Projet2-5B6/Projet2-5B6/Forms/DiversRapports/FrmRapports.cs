@@ -51,9 +51,37 @@ namespace Projet2_5B6.Forms.DiversRapports
                                                                  nomCompletEmploye = employe.Prenom + " " + employe.Nom
                                                               };
 
+         // parties jouées par terrain et parties jouées par abonnement
+         this.ObjetPartiesJoueesParTerrainBindingSource.DataSource = from partie in data.PartiesJouees
+                                                                     join unTerrain in data.Terrains on partie.NoTerrain equals unTerrain.No
+                                                                     join abonne in data.Abonnements on partie.IdAbbonement equals abonne.Id
+                                                                     select new
+                                                                     {
+                                                                        nomTerrain = unTerrain.Nom,
+                                                                        datePartie = partie.DatePartie,
+                                                                        nomCompletAbonne = abonne.Prenom + " " + abonne.Nom,
+                                                                        pointage = partie.Pointage
+                                                                     };
+
+         // parties jouées par année
+         this.ObjetPartiesJoueesParAnneeBindingSource.DataSource = from partie in data.PartiesJouees
+                                                                     join unTerrain in data.Terrains on partie.NoTerrain equals unTerrain.No
+                                                                     join abonne in data.Abonnements on partie.IdAbbonement equals abonne.Id
+                                                                     select new
+                                                                     {
+                                                                        annee = partie.DatePartie.Year,
+                                                                        nomTerrain = unTerrain.Nom,
+                                                                        datePartie = partie.DatePartie,
+                                                                        nomCompletAbonne = abonne.Prenom + " " + abonne.Nom,
+                                                                        pointage = partie.Pointage
+                                                                     };
+
          this.reportViewer1.RefreshReport();
          this.reportViewer2.RefreshReport();
          this.reportViewer3.RefreshReport();
+         this.reportViewer4.RefreshReport();
+         this.reportViewer5.RefreshReport();
+         this.reportViewer6.RefreshReport();
       }
    }
 }

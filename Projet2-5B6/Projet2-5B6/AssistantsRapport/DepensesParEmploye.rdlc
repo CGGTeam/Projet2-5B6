@@ -31,7 +31,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>type Service</Value>
+                              <Value>Type service</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -72,7 +72,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>montant</Value>
+                              <Value>Montant</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -113,7 +113,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>date Depense</Value>
+                              <Value>Date dépense</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -154,7 +154,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>nom Complet Abonne</Value>
+                              <Value>Nom complet abonné</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -238,6 +238,7 @@
                               <Value>=Fields!montant.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
+                                <Format>0.00'$';(0.00'$')</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
@@ -257,6 +258,7 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>fr-CA</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                   </CellContents>
@@ -356,7 +358,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>nom Complet Employe</Value>
+                            <Value>Nom complet employé</Value>
                             <Style>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -460,7 +462,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.69333cm</Top>
         <Height>1.2cm</Height>
-        <Width>24.37979cm</Width>
+        <Width>24.3798cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -537,7 +539,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>9.59834in</Width>
+  <Width>9.59835in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

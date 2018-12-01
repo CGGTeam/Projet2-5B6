@@ -163,6 +163,8 @@
     <Compile Include="ObjetsLINQ\InfosAbonnementsDetailles.cs" />
     <Compile Include="ObjetsLINQ\ObjetDepensesParAbonnement.cs" />
     <Compile Include="ObjetsLINQ\ObjetDepensesParAnnee.cs" />
+    <Compile Include="ObjetsLINQ\ObjetPartiesJoueesParAnnee.cs" />
+    <Compile Include="ObjetsLINQ\ObjetPartiesJoueesParTerrain.cs" />
     <Compile Include="ObjetsLINQ\TypeAbonnementPrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,6 +172,9 @@
     <EmbeddedResource Include="AssistantsRapport\DepensesParAbonnement.rdlc" />
     <EmbeddedResource Include="AssistantsRapport\DepensesParAnnee.rdlc" />
     <EmbeddedResource Include="AssistantsRapport\DepensesParEmploye.rdlc" />
+    <EmbeddedResource Include="AssistantsRapport\PartiesJoueesParAbonnement.rdlc" />
+    <EmbeddedResource Include="AssistantsRapport\PartiesJoueesParTerrain.rdlc" />
+    <EmbeddedResource Include="AssistantsRapport\PartiesJoueesParAnnee.rdlc" />
     <EmbeddedResource Include="Forms\DiversRapports\FrmRapports.resx">
       <DependentUpon>FrmRapports.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +237,8 @@
     <None Include="Properties\DataSources\PrixDepenseAbonnement.datasource" />
     <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetDepensesParAbonnement.datasource" />
     <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetDepensesParAnnee.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParAnnee.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParTerrain.datasource" />
     <None Include="Properties\DataSources\Province.datasource" />
     <None Include="Properties\DataSources\Reabonnement.datasource" />
     <None Include="Properties\DataSources\Service.datasource" />

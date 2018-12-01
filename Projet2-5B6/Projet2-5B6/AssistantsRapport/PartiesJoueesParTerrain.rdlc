@@ -6,16 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.31504cm</Width>
+              <Width>5.96604cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.31504cm</Width>
+              <Width>5.96604cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.31504cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>4.31504cm</Width>
+              <Width>5.96604cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -31,7 +28,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Montant</Value>
+                              <Value>Date partie</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -72,7 +69,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Date dépense</Value>
+                              <Value>Nom complet abonné</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -113,7 +110,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Type service</Value>
+                              <Value>Pointage</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -145,47 +142,6 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox7">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Nom complet employé</Value>
-                              <Style>
-                                <FontSize>11pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>#666666</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <BottomBorder>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -193,51 +149,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="montant">
+                    <Textbox Name="datePartie">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!montant.Value</Value>
-                              <Style>
-                                <FontWeight>Normal</FontWeight>
-                                <Format>0.00'$';(0.00'$')</Format>
-                                <Color>#333333</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>montant</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <BackgroundColor>White</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                        <rd:FormatSymbolCulture>fr-CA</rd:FormatSymbolCulture>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="dateDepense">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!dateDepense.Value</Value>
+                              <Value>=Fields!datePartie.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -249,7 +168,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>dateDepense</rd:DefaultName>
+                      <rd:DefaultName>datePartie</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -265,14 +184,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="typeService">
+                    <Textbox Name="nomCompletAbonne">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!typeService.Value</Value>
+                              <Value>=Fields!nomCompletAbonne.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -284,7 +203,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>typeService</rd:DefaultName>
+                      <rd:DefaultName>nomCompletAbonne</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -300,14 +219,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="nomCompletEmploye">
+                    <Textbox Name="pointage">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nomCompletEmploye.Value</Value>
+                              <Value>=Fields!pointage.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -319,7 +238,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>nomCompletEmploye</rd:DefaultName>
+                      <rd:DefaultName>pointage</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -342,23 +261,22 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>4.31504cm</Size>
+                <Size>5.96604cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox9">
+                  <Textbox Name="Textbox7">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Nom complet abonné</Value>
+                            <Value>Nom terrain</Value>
                             <Style>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -371,7 +289,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox9</rd:DefaultName>
+                    <rd:DefaultName>Textbox7</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -396,27 +314,27 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="nomCompletAbonne">
+              <Group Name="nomTerrain">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!nomCompletAbonne.Value</GroupExpression>
+                  <GroupExpression>=Fields!nomTerrain.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!nomCompletAbonne.Value</Value>
+                  <Value>=Fields!nomTerrain.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>4.31504cm</Size>
+                <Size>5.96604cm</Size>
                 <CellContents>
-                  <Textbox Name="nomCompletAbonne">
+                  <Textbox Name="nomTerrain">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!nomCompletAbonne.Value</Value>
+                            <Value>=Fields!nomTerrain.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                               <Color>#333333</Color>
@@ -428,7 +346,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>nomCompletAbonne</rd:DefaultName>
+                    <rd:DefaultName>nomTerrain</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -452,7 +370,7 @@
                   <Group Name="Détails" />
                   <Visibility>
                     <Hidden>true</Hidden>
-                    <ToggleItem>nomCompletAbonne</ToggleItem>
+                    <ToggleItem>nomTerrain</ToggleItem>
                   </Visibility>
                 </TablixMember>
               </TablixMembers>
@@ -460,9 +378,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.5875cm</Top>
+        <Top>1.905cm</Top>
         <Height>1.2cm</Height>
-        <Width>21.5752cm</Width>
+        <Width>23.86416cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -486,10 +404,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ExecutionTime</rd:DefaultName>
-        <Top>3.70099cm</Top>
-        <Left>16.48037cm</Left>
+        <Top>3.78037cm</Top>
+        <Left>18.94099cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.11396cm</Width>
+        <Width>4.0875cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -508,7 +426,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Dépenses par abonnement</Value>
+                <Value>Parties jouées par terrain</Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                 </Style>
@@ -520,10 +438,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ReportName</rd:DefaultName>
-        <Top>0.28787cm</Top>
-        <Left>6.87599cm</Left>
-        <Height>0.85866cm</Height>
-        <Width>8.10917cm</Width>
+        <Top>0.52599cm</Top>
+        <Left>7.3787cm</Left>
+        <Height>0.86458cm</Height>
+        <Width>7.97688cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -539,7 +457,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>8.49418in</Width>
+  <Width>9.39534in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
@@ -557,7 +475,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>147c5c0d-7d09-4a1e-9811-f0162e55d490</rd:DataSourceID>
+      <rd:DataSourceID>80e399af-66e5-4ff5-b37b-1e5e9a1daef2</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -567,34 +485,30 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="dateDepense">
-          <DataField>dateDepense</DataField>
+        <Field Name="datePartie">
+          <DataField>datePartie</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="montant">
-          <DataField>montant</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="nomCompletAbonne">
           <DataField>nomCompletAbonne</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="nomCompletEmploye">
-          <DataField>nomCompletEmploye</DataField>
+        <Field Name="nomTerrain">
+          <DataField>nomTerrain</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="typeService">
-          <DataField>typeService</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="pointage">
+          <DataField>pointage</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Projet2_5B6.ObjetsLINQ</rd:DataSetName>
-        <rd:TableName>ObjetDepensesParAbonnement</rd:TableName>
-        <rd:ObjectDataSourceType>Projet2_5B6.ObjetsLINQ.ObjetDepensesParAbonnement, Projet2-5B6, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>ObjetPartiesJoueesParTerrain</rd:TableName>
+        <rd:ObjectDataSourceType>Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParTerrain, Projet2-5B6, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>3f1cbc4e-6c5a-4fc4-b255-e0f54ca7e988</rd:ReportID>
+  <rd:ReportID>ecc1831c-61b4-4726-bd23-91582e29b7f4</rd:ReportID>
 </Report>
