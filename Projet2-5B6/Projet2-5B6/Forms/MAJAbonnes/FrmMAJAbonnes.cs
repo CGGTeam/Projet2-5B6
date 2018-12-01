@@ -27,8 +27,10 @@ namespace Projet2_5B6.Forms.MAJAbonnes
             LoadSexes();
             LoadAbonnements();
 
-            if(abonnementBindingSource.Current != null)
+            if (abonnementBindingSource.Current != null)
                 LoadDependants();
+            else
+                dependantDataGridView.Visible = false;
         }
         private void LoadSexes()
         {
@@ -63,14 +65,31 @@ namespace Projet2_5B6.Forms.MAJAbonnes
         private void LoadDependants()
         {
             Abonnement currentAbonnement = (Abonnement)abonnementBindingSource.Current;
-            dependantBindingSource.DataSource = from unDependant in monDatatContext.Dependants
+            var dependants = from unDependant in monDatatContext.Dependants
                                                 where unDependant.IdAbonnement == currentAbonnement.Id
                                                 select unDependant;
+            if (dependants.Any()) {
+                dependantBindingSource.DataSource = dependants;
+                dependantDataGridView.Visible = true;
+            }
+            else
+            {
+                dependantBindingSource.DataSource = dependants;
+                dependantDataGridView.Visible = false;
+            }
+                            
         }
         private void abonnementBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
+        {   
             if (abonnementBindingSource.Current != null)
+            {
                 LoadDependants();
+                dependantDataGridView.Visible = true;
+            }
+            else
+            {
+                dependantDataGridView.Visible = false;
+            }
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)

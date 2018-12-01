@@ -35,9 +35,9 @@
             this.miseÀJourDesAbonnésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesRéabonnementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inscriptionDunePartieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.déconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inscriptionDunePartieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             this.gestionDesEmployésToolStripMenuItem.Name = "gestionDesEmployésToolStripMenuItem";
             this.gestionDesEmployésToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
             this.gestionDesEmployésToolStripMenuItem.Text = "Gestion des employés";
-            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesAbonnementsToolStripMenuItem_Click);
+            this.gestionDesEmployésToolStripMenuItem.Click += new System.EventHandler(this.gestionDesEmployésToolStripMenuItem_Click);
             // 
             // gestionDesAbonnementsToolStripMenuItem
             // 
@@ -102,6 +102,13 @@
             this.gestionDesRéabonnementsToolStripMenuItem.Text = "Gestion des réabonnements";
             this.gestionDesRéabonnementsToolStripMenuItem.Click += new System.EventHandler(this.gestionDesRéabonnementsToolStripMenuItem_Click);
             // 
+            // inscriptionDunePartieToolStripMenuItem
+            // 
+            this.inscriptionDunePartieToolStripMenuItem.Name = "inscriptionDunePartieToolStripMenuItem";
+            this.inscriptionDunePartieToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
+            this.inscriptionDunePartieToolStripMenuItem.Text = "Inscription d\'une partie";
+            this.inscriptionDunePartieToolStripMenuItem.Click += new System.EventHandler(this.inscriptionDunePartieToolStripMenuItem_Click);
+            // 
             // déconnexionToolStripMenuItem
             // 
             this.déconnexionToolStripMenuItem.Name = "déconnexionToolStripMenuItem";
@@ -115,13 +122,6 @@
             this.quitterToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
-            // 
-            // inscriptionDunePartieToolStripMenuItem
-            // 
-            this.inscriptionDunePartieToolStripMenuItem.Name = "inscriptionDunePartieToolStripMenuItem";
-            this.inscriptionDunePartieToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
-            this.inscriptionDunePartieToolStripMenuItem.Text = "Inscription d\'une partie";
-            this.inscriptionDunePartieToolStripMenuItem.Click += new System.EventHandler(this.inscriptionDunePartieToolStripMenuItem_Click);
             // 
             // BaseForm
             // 
