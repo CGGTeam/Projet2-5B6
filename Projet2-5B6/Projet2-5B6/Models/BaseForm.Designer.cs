@@ -36,9 +36,10 @@
          this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.gestionDesRéabonnementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.inscriptionDunePartieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.visualiserLesRapportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.déconnexionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-         this.visualiserLesRapportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+         this.visualiserLesStatistiquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.menuBar.SuspendLayout();
          this.SuspendLayout();
          // 
@@ -64,7 +65,8 @@
             this.modificationDunPrixEtDesDépensesObligatoiresToolStripMenuItem,
             this.gestionDesRéabonnementsToolStripMenuItem,
             this.inscriptionDunePartieToolStripMenuItem,
-            this.visualiserLesRapportsToolStripMenuItem});
+            this.visualiserLesRapportsToolStripMenuItem,
+            this.visualiserLesStatistiquesToolStripMenuItem});
          this.menuOption.Name = "menuOption";
          this.menuOption.Size = new System.Drawing.Size(50, 20);
          this.menuOption.Text = "Menu";
@@ -111,6 +113,13 @@
          this.inscriptionDunePartieToolStripMenuItem.Text = "Inscription d\'une partie";
          this.inscriptionDunePartieToolStripMenuItem.Click += new System.EventHandler(this.inscriptionDunePartieToolStripMenuItem_Click);
          // 
+         // visualiserLesRapportsToolStripMenuItem
+         // 
+         this.visualiserLesRapportsToolStripMenuItem.Name = "visualiserLesRapportsToolStripMenuItem";
+         this.visualiserLesRapportsToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
+         this.visualiserLesRapportsToolStripMenuItem.Text = "Visualiser les rapports";
+         this.visualiserLesRapportsToolStripMenuItem.Click += new System.EventHandler(this.visualiserLesRapportsToolStripMenuItem_Click);
+         // 
          // déconnexionToolStripMenuItem
          // 
          this.déconnexionToolStripMenuItem.Name = "déconnexionToolStripMenuItem";
@@ -125,12 +134,12 @@
          this.quitterToolStripMenuItem.Text = "Quitter";
          this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
          // 
-         // visualiserLesRapportsToolStripMenuItem
+         // visualiserLesStatistiquesToolStripMenuItem
          // 
-         this.visualiserLesRapportsToolStripMenuItem.Name = "visualiserLesRapportsToolStripMenuItem";
-         this.visualiserLesRapportsToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
-         this.visualiserLesRapportsToolStripMenuItem.Text = "Visualiser les rapports";
-         this.visualiserLesRapportsToolStripMenuItem.Click += new System.EventHandler(this.visualiserLesRapportsToolStripMenuItem_Click);
+         this.visualiserLesStatistiquesToolStripMenuItem.Name = "visualiserLesStatistiquesToolStripMenuItem";
+         this.visualiserLesStatistiquesToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
+         this.visualiserLesStatistiquesToolStripMenuItem.Text = "Visualiser les statistiques";
+         this.visualiserLesStatistiquesToolStripMenuItem.Click += new System.EventHandler(this.visualiserLesStatistiquesToolStripMenuItem_Click);
          // 
          // BaseForm
          // 
@@ -163,5 +172,6 @@
       private System.Windows.Forms.ToolStripMenuItem gestionDesRéabonnementsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inscriptionDunePartieToolStripMenuItem;
       private System.Windows.Forms.ToolStripMenuItem visualiserLesRapportsToolStripMenuItem;
+      private System.Windows.Forms.ToolStripMenuItem visualiserLesStatistiquesToolStripMenuItem;
    }
 }

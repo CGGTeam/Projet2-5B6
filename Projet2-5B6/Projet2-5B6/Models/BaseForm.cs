@@ -1,5 +1,6 @@
 ﻿using Projet2_5B6.Forms;
 using Projet2_5B6.Forms.DiversRapports;
+using Projet2_5B6.Forms.DiversStatistiques;
 using Projet2_5B6.Forms.EnregistrementPartie;
 using Projet2_5B6.Forms.GestionAbonnements;
 using Projet2_5B6.Forms.GestionReabonnement;
@@ -107,6 +108,11 @@ namespace Projet2_5B6
       {
          FindForm()?.Hide();
          new FrmRapports().ShowDialog();
+      }
+      private void visualiserLesStatistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+      {
+         FindForm()?.Hide();
+         new FrmStatistiques().ShowDialog();
       }
       private void BaseForm_Load(object sender, EventArgs e)
         {                     

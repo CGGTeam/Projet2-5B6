@@ -90,6 +90,12 @@
     <Compile Include="Forms\DiversRapports\FrmRapports.Designer.cs">
       <DependentUpon>FrmRapports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DiversStatistiques\FrmStatistiques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DiversStatistiques\FrmStatistiques.Designer.cs">
+      <DependentUpon>FrmStatistiques.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,9 @@
     <EmbeddedResource Include="AssistantsRapport\PartiesJoueesParAnnee.rdlc" />
     <EmbeddedResource Include="Forms\DiversRapports\FrmRapports.resx">
       <DependentUpon>FrmRapports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DiversStatistiques\FrmStatistiques.resx">
+      <DependentUpon>FrmStatistiques.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EnregistrementPartie\FrmInscriptionPartie.resx">
       <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
