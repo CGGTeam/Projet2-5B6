@@ -66,6 +66,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DiversRapports\FrmRapports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DiversRapports\FrmRapports.Designer.cs">
+      <DependentUpon>FrmRapports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.cs" />
     <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.Designer.cs">
       <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
@@ -138,6 +144,9 @@
     <Compile Include="ObjetsLINQ\TypeAbonnementPrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\DiversRapports\FrmRapports.resx">
+      <DependentUpon>FrmRapports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EnregistrementPartie\FrmInscriptionPartie.resx">
       <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
     </EmbeddedResource>

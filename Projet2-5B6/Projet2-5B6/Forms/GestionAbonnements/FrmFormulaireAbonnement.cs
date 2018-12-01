@@ -146,6 +146,9 @@ namespace Projet2_5B6.Forms.GestionAbonnements
             // créer le nouvel abonné
             string idNouvelAbonne = tbNomAbo.Text + intPlusGrosId + "P";
 
+            bool cellNull = false;
+            int cell = 0;
+
             System.Diagnostics.Debug.WriteLine(idNouvelAbonne);
             System.Diagnostics.Debug.WriteLine(tbNomAbo.Text.Trim());
             System.Diagnostics.Debug.WriteLine(tbPrenomAbo.Text.Trim());
@@ -156,32 +159,69 @@ namespace Projet2_5B6.Forms.GestionAbonnements
             System.Diagnostics.Debug.WriteLine(tbVilleAbo.Text.Trim());
             System.Diagnostics.Debug.WriteLine(cbProvinceAbo.SelectedValue.ToString());
             System.Diagnostics.Debug.WriteLine(tbPostalAbo.Text.Trim());
+            
             System.Diagnostics.Debug.WriteLine(int.Parse(tbTelephoneAbo.Text.Replace("-", "")));
-            System.Diagnostics.Debug.WriteLine(int.Parse(tbCellAbo.Text.Replace("-", "")));
+
+            if (int.TryParse(tbCellAbo.Text.Replace("-", ""), out cell))
+            {
+               System.Diagnostics.Debug.WriteLine(cell);
+            }
+            else
+            {
+               cellNull = true;
+            }
+            
             System.Diagnostics.Debug.WriteLine(tbCourrielAbo.Text.Trim());
             System.Diagnostics.Debug.WriteLine(this.noTypeAbonnement);
             System.Diagnostics.Debug.WriteLine(tbRemarqueAbo.Text.Trim());
-
-            var nouvelAbonnement = new Projet2_5B6.Abonnement
+            
+            if (cellNull == false)
             {
-               Id = idNouvelAbonne,
-               DateAbonnement = DateTime.Now,
-               Nom = tbNomAbo.Text.Trim(),
-               Prenom = tbPrenomAbo.Text.Trim(),
-               Sexe = (cbSexeAbo.Text == "Homme") ? 'H' : 'F',
-               DateNaissance = dateNaissanceAbo.Value,
-               NoCivique = int.Parse(tbCiviqueAbo.Text.Trim()),
-               Rue = tbRueAbo.Text.Trim(),
-               Ville = tbVilleAbo.Text.Trim(),
-               IdProvince = cbProvinceAbo.SelectedValue.ToString(),
-               CodePostal = tbPostalAbo.Text.Trim(),
-               Telephone = int.Parse(tbTelephoneAbo.Text.Replace("-", "")),
-               Cellulaire = int.Parse(tbCellAbo.Text.Replace("-", "")),
-               Courriel = tbCourrielAbo.Text.Trim(),
-               NoTypeAbonnement = this.noTypeAbonnement,
-               Remarque = tbRemarqueAbo.Text.Trim()
-            };
-            data.Abonnements.InsertOnSubmit(nouvelAbonnement);
+               var nouvelAbonnement = new Projet2_5B6.Abonnement
+               {
+                  Id = idNouvelAbonne,
+                  DateAbonnement = DateTime.Now,
+                  Nom = tbNomAbo.Text.Trim(),
+                  Prenom = tbPrenomAbo.Text.Trim(),
+                  Sexe = (cbSexeAbo.Text == "Homme") ? 'H' : 'F',
+                  DateNaissance = dateNaissanceAbo.Value,
+                  NoCivique = int.Parse(tbCiviqueAbo.Text.Trim()),
+                  Rue = tbRueAbo.Text.Trim(),
+                  Ville = tbVilleAbo.Text.Trim(),
+                  IdProvince = cbProvinceAbo.SelectedValue.ToString(),
+                  CodePostal = tbPostalAbo.Text.Trim(),
+                  Telephone = int.Parse(tbTelephoneAbo.Text.Replace("-", "")),
+                  Cellulaire = int.Parse(tbCellAbo.Text.Replace("-", "")),
+                  Courriel = tbCourrielAbo.Text.Trim(),
+                  NoTypeAbonnement = this.noTypeAbonnement,
+                  Remarque = tbRemarqueAbo.Text.Trim()
+               };
+               data.Abonnements.InsertOnSubmit(nouvelAbonnement);
+            }
+            else
+            {
+               var nouvelAbonnement = new Projet2_5B6.Abonnement
+               {
+                  Id = idNouvelAbonne,
+                  DateAbonnement = DateTime.Now,
+                  Nom = tbNomAbo.Text.Trim(),
+                  Prenom = tbPrenomAbo.Text.Trim(),
+                  Sexe = (cbSexeAbo.Text == "Homme") ? 'H' : 'F',
+                  DateNaissance = dateNaissanceAbo.Value,
+                  NoCivique = int.Parse(tbCiviqueAbo.Text.Trim()),
+                  Rue = tbRueAbo.Text.Trim(),
+                  Ville = tbVilleAbo.Text.Trim(),
+                  IdProvince = cbProvinceAbo.SelectedValue.ToString(),
+                  CodePostal = tbPostalAbo.Text.Trim(),
+                  Telephone = int.Parse(tbTelephoneAbo.Text.Replace("-", "")),
+                  Courriel = tbCourrielAbo.Text.Trim(),
+                  NoTypeAbonnement = this.noTypeAbonnement,
+                  Remarque = tbRemarqueAbo.Text.Trim()
+               };
+               data.Abonnements.InsertOnSubmit(nouvelAbonnement);
+            }
+            
+            
 
             // si couple
             if (this.noTypeAbonnement >= 3)
