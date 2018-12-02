@@ -167,6 +167,7 @@
     <Compile Include="ADOUtils.cs" />
     <Compile Include="ObjetsLINQ\IdEtNomCompletAbo.cs" />
     <Compile Include="ObjetsLINQ\InfosAbonnementsDetailles.cs" />
+    <Compile Include="ObjetsLINQ\ObjetAbonnementsParAnneeEtParTypeAbonnement.cs" />
     <Compile Include="ObjetsLINQ\ObjetDepensesParAbonnement.cs" />
     <Compile Include="ObjetsLINQ\ObjetDepensesParAnnee.cs" />
     <Compile Include="ObjetsLINQ\ObjetPartiesJoueesParAnnee.cs" />
@@ -174,7 +175,6 @@
     <Compile Include="ObjetsLINQ\TypeAbonnementPrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="AssistantsRapport\DepensesParAbonnement.rdlc" />
     <EmbeddedResource Include="AssistantsRapport\DepensesParAnnee.rdlc" />
     <EmbeddedResource Include="AssistantsRapport\DepensesParEmploye.rdlc" />
@@ -244,6 +244,7 @@
     <None Include="Properties\DataSources\Employe.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PrixDepenseAbonnement.datasource" />
+    <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetAbonnementsParAnneeEtParTypeAbonnement.datasource" />
     <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetDepensesParAbonnement.datasource" />
     <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetDepensesParAnnee.datasource" />
     <None Include="Properties\DataSources\Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParAnnee.datasource" />
@@ -273,21 +274,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="AssistantsRapportStatistiques\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
