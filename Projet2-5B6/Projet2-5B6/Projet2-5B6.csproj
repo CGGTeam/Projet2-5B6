@@ -102,6 +102,12 @@
     <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.Designer.cs">
       <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EnregistrerDepense\FrmInformationDepense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnregistrerDepense\FrmInformationDepense.Designer.cs">
+      <DependentUpon>FrmInformationDepense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EnregistrerDepense\FrmInscriptionDepense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EnregistrementPartie\FrmInscriptionPartie.resx">
       <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnregistrerDepense\FrmInformationDepense.resx">
+      <DependentUpon>FrmInformationDepense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnregistrerDepense\FrmInscriptionDepense.resx">
+      <DependentUpon>FrmInscriptionDepense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAccueil.resx">
       <DependentUpon>FrmAccueil.cs</DependentUpon>

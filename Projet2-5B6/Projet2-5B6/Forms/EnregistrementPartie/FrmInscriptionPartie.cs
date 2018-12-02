@@ -44,16 +44,23 @@ namespace Projet2_5B6.Forms.EnregistrementPartie
         }
         private void btnConfirmer_Click(object sender, EventArgs e)
         {
+            int selectedrowindex = idEtNomCompletAboDataGridView.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = idEtNomCompletAboDataGridView.Rows[selectedrowindex];
+            string id = Convert.ToString(selectedRow.Cells["dataGridViewTbId"].Value);
+
+            Terrain terrain = this.lstTerrains.SelectedItem as Terrain;
+
             DateTime date = DateTime.Now;
             PartiesJouee partie = new PartiesJouee
             {
-                IdAbbonement = ((IdEtNomCompletAbo)idEtNomCompletAboBindingSource.Current).id,
-                NoTerrain = ((Terrain)terrainBindingSource.Current).No,
+                IdAbbonement = id,
+                NoTerrain = terrain.No,
                 DatePartie = date,
                 Pointage = Convert.ToInt32(numPoint.Value),
-                Remarque = tbPartie.Text
+                Remarque = tbPartie.Text == "" ? null : tbPartie.Text
             };
             monDatatContext.PartiesJouees.InsertOnSubmit(partie);
+            Enregistrer();
         }
         public void Enregistrer()
         {
@@ -64,6 +71,7 @@ namespace Projet2_5B6.Forms.EnregistrementPartie
                 {
                     monDatatContext.SubmitChanges();
                     transaction.Complete();
+                    lblErrorProvider.Text = "Enregistrement éffectué avec succès";
                 }
                 catch (ChangeConflictException)
                 {

@@ -41,10 +41,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.idEtNomCompletAboBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idEtNomCompletAboDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirmer = new System.Windows.Forms.Button();
             this.lblErrorProvider = new System.Windows.Forms.Label();
+            this.dataGridViewTbId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.terrainBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPoint)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -164,7 +164,7 @@
             this.idEtNomCompletAboDataGridView.AutoGenerateColumns = false;
             this.idEtNomCompletAboDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.idEtNomCompletAboDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTbId,
             this.dataGridViewTextBoxColumn2});
             this.idEtNomCompletAboDataGridView.DataSource = this.idEtNomCompletAboBindingSource;
             this.idEtNomCompletAboDataGridView.GridColor = System.Drawing.SystemColors.Control;
@@ -176,22 +176,6 @@
             this.idEtNomCompletAboDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.idEtNomCompletAboDataGridView.Size = new System.Drawing.Size(365, 352);
             this.idEtNomCompletAboDataGridView.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nomComplet";
-            this.dataGridViewTextBoxColumn2.HeaderText = "nomComplet";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // btnConfirmer
             // 
@@ -210,6 +194,22 @@
             this.lblErrorProvider.Name = "lblErrorProvider";
             this.lblErrorProvider.Size = new System.Drawing.Size(0, 13);
             this.lblErrorProvider.TabIndex = 13;
+            // 
+            // dataGridViewTbId
+            // 
+            this.dataGridViewTbId.DataPropertyName = "id";
+            this.dataGridViewTbId.HeaderText = "id";
+            this.dataGridViewTbId.Name = "dataGridViewTbId";
+            this.dataGridViewTbId.ReadOnly = true;
+            this.dataGridViewTbId.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nomComplet";
+            this.dataGridViewTextBoxColumn2.HeaderText = "nomComplet";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // FrmInscriptionPartie
             // 
@@ -251,9 +251,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.BindingSource idEtNomCompletAboBindingSource;
         private System.Windows.Forms.DataGridView idEtNomCompletAboDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button btnConfirmer;
         private System.Windows.Forms.Label lblErrorProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTbId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

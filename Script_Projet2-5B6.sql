@@ -169,7 +169,7 @@ CREATE TABLE Depenses
     DateDepense date NOT NULL,
     Montant money NOT NULL,
     NoService int NOT NULL,
-    Remarque nvarchar(100) NOT NULL,
+    Remarque nvarchar(100),
     CONSTRAINT Depenses_Abonnements_Id_fk FOREIGN KEY (IdAbonnement) REFERENCES Abonnements (Id),
     CONSTRAINT Depenses_Services_No_fk FOREIGN KEY (NoService) REFERENCES Services (No)
 )
