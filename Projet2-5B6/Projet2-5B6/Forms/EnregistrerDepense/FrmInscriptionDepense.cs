@@ -47,6 +47,24 @@ namespace Projet2_5B6.Forms.EnregistrerDepense
             ddlTypeDepense.DataSource = new BindingSource(userCache, null);
             ddlTypeDepense.DisplayMember = "Value";
             ddlTypeDepense.ValueMember = "Value";
+
+            int noTypeEmploye = GestionForms.utilisateurConnecte.noType;
+
+            switch (noTypeEmploye)
+            {
+                case 5:
+                    ddlTypeDepense.SelectedValue = "Magasin Pro Shop";
+                    ddlTypeDepense.Enabled = false;
+                    break;
+                case 6:
+                    ddlTypeDepense.SelectedValue = "Restaurant";
+                    ddlTypeDepense.Enabled = false;
+                    break;
+                case 7:
+                    ddlTypeDepense.SelectedValue = "Leçon de golf";
+                    ddlTypeDepense.Enabled = false;
+                    break;
+            }
         }
 
         private void btnConfirmer_Click(object sender, EventArgs e)

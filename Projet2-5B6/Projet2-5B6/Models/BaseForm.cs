@@ -129,7 +129,7 @@ namespace Projet2_5B6
             int[] permissionStatistiques = { 1, 3, 4 };
             int[] permissionMAJAbonnement = { 1, 3, 4 };
             int[] permissionModifPrix = { 1, 2, 3};
-            int[] permissionInscriptionPartie = { 1, 3, 4, 5, 6 };
+            int[] permissionInscriptionPartie = { 1, 3, 5, 6, 7};
             /**
              * Permet d'afficher uniquement les menu que l'utilisateur à le droit de consulter selon son type d'employé 
              * 1=Administrateur , 2=Direction , 3=Propriétaire d’un club , 4=Employé d’un club, 5=Employé Pro-Shop , 6=Employé d’un restaurant , 7=Professeur de golf
