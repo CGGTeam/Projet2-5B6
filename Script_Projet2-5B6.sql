@@ -61,11 +61,6 @@ CREATE TABLE PrixDepenseAbonnements
     CONSTRAINT PrixDepenseAbonnements_TypeAbonnement_No_fk FOREIGN KEY (NoTypeAbonnement) REFERENCES TypeAbonnement (No),
     primary key (NoTypeAbonnement, Anne)
 )
-<<<<<<< HEAD
-CREATE UNIQUE INDEX PrixDepenseAbonnements_NoTypeAbonnement_uindex ON PrixDepenseAbonnements (NoTypeAbonnement)
-
-=======
->>>>>>> b12deba2547acb9dfb20b9dd1cf4e433da36111c
 /**
 Création de la table TypesEmploye
  */
@@ -103,7 +98,7 @@ CREATE TABLE Employes
     IdProvince varchar(2) NOT NULL,
     CodePostal varchar(6) NOT NULL,
     Telephone numeric(18,0) NOT NULL,
-    Cellulaire numeric(18,0) NOT NULL,
+    Cellulaire numeric(18,0),
     Courriel nvarchar(50) NOT NULL,
     SalaireHoraire money NOT NULL,
     NoTypeEmploye int NOT NULL,
@@ -140,8 +135,8 @@ CREATE TABLE Abonnements
     Ville nvarchar(50) NOT NULL,
     IdProvince varchar(2) NOT NULL,
     CodePostal varchar(6) NOT NULL,
-    Telephone int,
-    Cellulaire int NOT NULL,
+    Telephone numeric(18,0) NOT NULL,
+    Cellulaire numeric(18,0),
     Courriel nvarchar(50) NOT NULL,
     NoTypeAbonnement int NOT NULL,
     Remarque nvarchar(100),

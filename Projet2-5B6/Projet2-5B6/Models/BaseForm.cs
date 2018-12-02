@@ -2,6 +2,7 @@
 using Projet2_5B6.Forms.DiversRapports;
 using Projet2_5B6.Forms.DiversStatistiques;
 using Projet2_5B6.Forms.EnregistrementPartie;
+using Projet2_5B6.Forms.EnregistrerDepense;
 using Projet2_5B6.Forms.GestionAbonnements;
 using Projet2_5B6.Forms.GestionReabonnement;
 using Projet2_5B6.Forms.MAJAbonnes;
@@ -104,17 +105,22 @@ namespace Projet2_5B6
             FindForm()?.Hide();
             new FrmInscriptionPartie().ShowDialog();
         }
-      private void visualiserLesRapportsToolStripMenuItem_Click(object sender, EventArgs e)
-      {
-         FindForm()?.Hide();
-         new FrmRapports().ShowDialog();
-      }
-      private void visualiserLesStatistiquesToolStripMenuItem_Click(object sender, EventArgs e)
-      {
-         FindForm()?.Hide();
-         new FrmStatistiques().ShowDialog();
-      }
-      private void BaseForm_Load(object sender, EventArgs e)
+        private void visualiserLesRapportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Hide();
+            new FrmRapports().ShowDialog();
+        }
+        private void visualiserLesStatistiquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Hide();
+            new FrmStatistiques().ShowDialog();
+        }
+        private void inscriptionDuneDepenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindForm()?.Hide();
+            new FrmInscriptionDepense().ShowDialog();
+        }
+        private void BaseForm_Load(object sender, EventArgs e)
         {                     
             int[] permissionGestionUtilisateurs = { 1, 2 };
             int[] permissionGestionAbonnements = { 1, 3, 4 };
@@ -154,7 +160,5 @@ namespace Projet2_5B6
                 }
             }         
         }
-
-      
-   }    
+    }    
 }
