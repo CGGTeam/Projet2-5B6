@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms.DiversStatistiques
 {
-   public partial class FrmStatistiques : Form
+   public partial class FrmStatistiques : BaseForm
    {
       DataClasses1DataContext data = new DataClasses1DataContext();
 

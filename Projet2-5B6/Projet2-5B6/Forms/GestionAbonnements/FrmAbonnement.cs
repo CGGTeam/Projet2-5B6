@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms.GestionAbonnements
 {
-   public partial class FrmAbonnement : Form
+   public partial class FrmAbonnement : BaseForm
    {
       private DataClasses1DataContext data = new DataClasses1DataContext();
 

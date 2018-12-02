@@ -124,6 +124,9 @@ namespace Projet2_5B6
         {                     
             int[] permissionGestionUtilisateurs = { 1, 2 };
             int[] permissionGestionAbonnements = { 1, 3, 4 };
+            int[] permissionReabonnement = { 1, 3, 4 };
+            int[] permissionRapports = { 1, 3, 4 };
+            int[] permissionStatistiques = { 1, 3, 4 };
             int[] permissionMAJAbonnement = { 1, 3, 4 };
             int[] permissionModifPrix = { 1, 2, 3};
             int[] permissionInscriptionPartie = { 1, 3, 4, 5, 6 };
@@ -143,6 +146,11 @@ namespace Projet2_5B6
                     if (!permissionGestionAbonnements.Contains(GestionForms.utilisateurConnecte.noType))
                         item.Visible = false;
                 }
+                else if (item == gestionDesRéabonnementsToolStripMenuItem)
+                {
+                    if (!permissionReabonnement.Contains(GestionForms.utilisateurConnecte.noType))
+                        item.Visible = false;
+                }
                 else if (item == miseÀJourDesAbonnésToolStripMenuItem)
                 {
                     if (!permissionMAJAbonnement.Contains(GestionForms.utilisateurConnecte.noType))
@@ -156,6 +164,16 @@ namespace Projet2_5B6
                 else if (item == inscriptionDunePartieToolStripMenuItem)
                 {
                     if (!permissionInscriptionPartie.Contains(GestionForms.utilisateurConnecte.noType))
+                        item.Visible = false;
+                }
+                else if (item == visualiserLesRapportsToolStripMenuItem)
+                {
+                    if (!permissionRapports.Contains(GestionForms.utilisateurConnecte.noType))
+                        item.Visible = false;
+                }
+                else if (item == visualiserLesStatistiquesToolStripMenuItem)
+                {
+                    if (!permissionStatistiques.Contains(GestionForms.utilisateurConnecte.noType))
                         item.Visible = false;
                 }
             }         

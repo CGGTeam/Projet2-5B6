@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms.GestionReabonnement
 {
-   public partial class FrmReabonnement : Form
+   public partial class FrmReabonnement : BaseForm
    {
       DataClasses1DataContext data = new DataClasses1DataContext();
 
