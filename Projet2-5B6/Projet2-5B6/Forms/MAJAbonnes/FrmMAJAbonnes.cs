@@ -138,7 +138,7 @@ namespace Projet2_5B6.Forms.MAJAbonnes
         private void abonnementDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             DataGridViewRow row = abonnementDataGridView.CurrentRow;
-            row.ErrorText = "Une erreur de format est présent";
+            row.ErrorText = "Une erreur de format est présente";
             e.Cancel = true;
 
             btnSauvegarder.Enabled = !ContientErreur();
@@ -147,7 +147,7 @@ namespace Projet2_5B6.Forms.MAJAbonnes
         private void dependantDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             DataGridViewRow row = dependantDataGridView.CurrentRow;
-            row.ErrorText = "Une erreur de format est présent";
+            row.ErrorText = "Une erreur de format est présente";
             e.Cancel = true;
 
             btnSauvegarder.Enabled = !ContientErreur();
@@ -169,7 +169,7 @@ namespace Projet2_5B6.Forms.MAJAbonnes
             var Courriel = abonnementDataGridView[13, e.RowIndex].Value;
 
             if (Prenom == null || NoCivique == null || Rue == null || Ville == null ||
-                CodePostal == null || Telephone == null || Cellulaire == null || Courriel == null)
+                CodePostal == null || Telephone == null ||  Courriel == null)
             {
                 msgErreur += "Il y a des champs vide" + Environment.NewLine;
             }
@@ -179,10 +179,14 @@ namespace Projet2_5B6.Forms.MAJAbonnes
                 {
                     msgErreur += "Le numéroe de téléphone doit être 10 de long" + Environment.NewLine;
                 }
-                if (Cellulaire.ToString().Length != 10 && Cellulaire.ToString() != "0")
+                if(Cellulaire != null)
                 {
-                    msgErreur += "Le numéroe de cellulaire doit être 10 de long" + Environment.NewLine;
+                    if (Cellulaire.ToString().Length != 10)
+                    {
+                        msgErreur += "Le numéroe de cellulaire doit être 10 de long" + Environment.NewLine;
+                    }
                 }
+                
             }
 
             row.ErrorText = msgErreur;
