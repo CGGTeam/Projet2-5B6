@@ -43,8 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -199,15 +199,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Montants totaux";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Sommes des dépense :";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -216,6 +207,15 @@
             this.label7.Size = new System.Drawing.Size(108, 26);
             this.label7.TabIndex = 8;
             this.label7.Text = "Montant restant pour \r\natteindre le minimum :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Sommes des dépense :";
             // 
             // FrmInformationDepense
             // 

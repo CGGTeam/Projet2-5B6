@@ -38,11 +38,11 @@ namespace Projet2_5B6.Forms.MAJAbonnes
               {'F', "Femme"},
             };
             dataGridViewSexes.DataSource = new BindingSource(dictionnarySexes, null);
-            dataGridViewSexes.DisplayMember = "Key";
+            dataGridViewSexes.DisplayMember = "Value";
             dataGridViewSexes.ValueMember = "Key";
 
             dataGridViewDependantsSexes.DataSource = new BindingSource(dictionnarySexes, null);
-            dataGridViewDependantsSexes.DisplayMember = "Key";
+            dataGridViewDependantsSexes.DisplayMember = "Value";
             dataGridViewDependantsSexes.ValueMember = "Key";
         }
         private void LoadProvince()

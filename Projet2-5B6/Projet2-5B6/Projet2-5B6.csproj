@@ -96,6 +96,12 @@
     <Compile Include="Forms\DiversStatistiques\FrmStatistiques.Designer.cs">
       <DependentUpon>FrmStatistiques.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\EnregistrementPartie\FrmInformationPartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnregistrementPartie\FrmInformationPartie.Designer.cs">
+      <DependentUpon>FrmInformationPartie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EnregistrementPartie\FrmInscriptionPartie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DiversStatistiques\FrmStatistiques.resx">
       <DependentUpon>FrmStatistiques.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnregistrementPartie\FrmInformationPartie.resx">
+      <DependentUpon>FrmInformationPartie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EnregistrementPartie\FrmInscriptionPartie.resx">
       <DependentUpon>FrmInscriptionPartie.cs</DependentUpon>

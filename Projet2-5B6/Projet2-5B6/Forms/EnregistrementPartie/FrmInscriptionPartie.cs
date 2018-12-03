@@ -60,9 +60,10 @@ namespace Projet2_5B6.Forms.EnregistrementPartie
                 Remarque = tbPartie.Text == "" ? null : tbPartie.Text
             };
             monDatatContext.PartiesJouees.InsertOnSubmit(partie);
-            Enregistrer();
+            if (Enregistrer())
+                new FrmInformationPartie(partie).ShowDialog();
         }
-        public void Enregistrer()
+        public bool Enregistrer()
         {
 
             using (var transaction = new TransactionScope())
@@ -72,14 +73,20 @@ namespace Projet2_5B6.Forms.EnregistrementPartie
                     monDatatContext.SubmitChanges();
                     transaction.Complete();
                     lblErrorProvider.Text = "Enregistrement éffectué avec succès";
+
+                    return true;
                 }
                 catch (ChangeConflictException)
                 {
                     monDatatContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+
+                    return false;
                 }
                 catch (Exception ex)
                 {
                     lblErrorProvider.Text = "Une erreure est survenue : " + ex.Message;
+
+                    return false;
                 }
             }
         }
