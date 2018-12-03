@@ -82,7 +82,6 @@
          this.label20 = new System.Windows.Forms.Label();
          this.cbProvinceAbo = new System.Windows.Forms.ComboBox();
          this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.tbPostalAbo = new System.Windows.Forms.TextBox();
          this.tbVilleAbo = new System.Windows.Forms.TextBox();
          this.tbRueAbo = new System.Windows.Forms.TextBox();
          this.tbCiviqueAbo = new System.Windows.Forms.TextBox();
@@ -115,6 +114,7 @@
          this.lblInformations = new System.Windows.Forms.Label();
          this.lblTitre = new System.Windows.Forms.Label();
          this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+         this.maskedTbPostalAbo = new System.Windows.Forms.MaskedTextBox();
          this.gbListeEnfants.SuspendLayout();
          this.gbEnfants.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.nudNbEnfants)).BeginInit();
@@ -654,13 +654,6 @@
          // 
          this.provinceBindingSource.DataSource = typeof(Projet2_5B6.Province);
          // 
-         // tbPostalAbo
-         // 
-         this.tbPostalAbo.Location = new System.Drawing.Point(470, 344);
-         this.tbPostalAbo.Name = "tbPostalAbo";
-         this.tbPostalAbo.Size = new System.Drawing.Size(84, 20);
-         this.tbPostalAbo.TabIndex = 112;
-         // 
          // tbVilleAbo
          // 
          this.tbVilleAbo.Location = new System.Drawing.Point(470, 279);
@@ -951,11 +944,21 @@
          // 
          this.errorProvider.ContainerControl = this;
          // 
+         // maskedTbPostalAbo
+         // 
+         this.maskedTbPostalAbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.maskedTbPostalAbo.Location = new System.Drawing.Point(470, 343);
+         this.maskedTbPostalAbo.Mask = "A9A-9A9";
+         this.maskedTbPostalAbo.Name = "maskedTbPostalAbo";
+         this.maskedTbPostalAbo.Size = new System.Drawing.Size(84, 23);
+         this.maskedTbPostalAbo.TabIndex = 126;
+         // 
          // FrmFormulaireAbonnement
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(1500, 627);
+         this.Controls.Add(this.maskedTbPostalAbo);
          this.Controls.Add(this.label46);
          this.Controls.Add(this.tbRemarqueAbo);
          this.Controls.Add(this.label47);
@@ -969,7 +972,6 @@
          this.Controls.Add(this.label21);
          this.Controls.Add(this.label20);
          this.Controls.Add(this.cbProvinceAbo);
-         this.Controls.Add(this.tbPostalAbo);
          this.Controls.Add(this.tbVilleAbo);
          this.Controls.Add(this.tbRueAbo);
          this.Controls.Add(this.tbCiviqueAbo);
@@ -1072,7 +1074,6 @@
       private System.Windows.Forms.Label label21;
       private System.Windows.Forms.Label label20;
       private System.Windows.Forms.ComboBox cbProvinceAbo;
-      private System.Windows.Forms.TextBox tbPostalAbo;
       private System.Windows.Forms.TextBox tbVilleAbo;
       private System.Windows.Forms.TextBox tbRueAbo;
       private System.Windows.Forms.TextBox tbCiviqueAbo;
@@ -1106,5 +1107,6 @@
       private System.Windows.Forms.Label lblTitre;
       private System.Windows.Forms.ErrorProvider errorProvider;
       private System.Windows.Forms.BindingSource provinceBindingSource;
+      private System.Windows.Forms.MaskedTextBox maskedTbPostalAbo;
    }
 }
