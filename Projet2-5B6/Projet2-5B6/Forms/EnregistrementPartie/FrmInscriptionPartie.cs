@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms.EnregistrementPartie
 {
-    public partial class FrmInscriptionPartie : Form
+    public partial class FrmInscriptionPartie : BaseForm 
     {
         DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
         public FrmInscriptionPartie()
