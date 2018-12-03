@@ -6,6 +6,7 @@ using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Forms;
@@ -185,6 +186,10 @@ namespace Projet2_5B6.Forms.MAJAbonnes
                     {
                         msgErreur += "Le numéroe de cellulaire doit être 10 de long" + Environment.NewLine;
                     }
+                }
+                if(!(new Regex(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]){1}$").Match(CodePostal.ToString())).Success)
+                {
+                    msgErreur += "Le code postal n'est pas valide" + Environment.NewLine;
                 }
                 
             }
