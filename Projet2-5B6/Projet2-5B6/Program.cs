@@ -8,9 +8,7 @@ namespace Projet2_5B6
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        /// VERSION 1.0
         [STAThread]
         static void Main()
         {
