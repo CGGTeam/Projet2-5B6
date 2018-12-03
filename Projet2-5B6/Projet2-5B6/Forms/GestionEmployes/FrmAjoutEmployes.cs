@@ -40,7 +40,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
         }
         private void Valider(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(tbTelephone.Text);
+            string codepostal = tbCodePostal.Text.Replace("-", "");
             double salaire;
             if (!controlesAValider.All(ctrl => ctrl.Text.Trim() != "")){
                 btnConfirmer.Enabled = false;
@@ -70,7 +70,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
                 btnConfirmer.Enabled = false;
                 errorProvider1.SetError(btnConfirmer, "Ls numéro de cellulaire n'est pas valide");
             }
-            else if (!(new Regex(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]){1}$").Match(tbCodePostal.Text)).Success)
+            else if (!(new Regex(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]){1}$").Match(codepostal)).Success)
             {
                 btnConfirmer.Enabled = false;
                 errorProvider1.SetError(btnConfirmer, "Le code postal n'est pas valide");
@@ -100,6 +100,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
         private void ModifierEmploye()
         {
             Nullable<decimal> cellulaire = null;
+            string codepostal = tbCodePostal.Text.Replace("-", "");
 
             int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi);
 
@@ -123,7 +124,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
             employeModifier.Rue = tbRue.Text;
             employeModifier.Ville = tbVille.Text;
             employeModifier.IdProvince = ddlProvince.SelectedValue.ToString();
-            employeModifier.CodePostal = tbCodePostal.Text;
+            employeModifier.CodePostal = codepostal;
             employeModifier.Telephone = telephone;
             employeModifier.Cellulaire = cellulaire;
             employeModifier.Courriel = tbCourriel.Text;
@@ -142,7 +143,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
         private void AjouterEmploye()
         {
             Nullable<decimal> cellulaire = null;
-
+            string codepostal = tbCodePostal.Text.Replace("-", "");
             int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi);
 
             decimal.TryParse(tbSalaireHoraire.Text, out decimal salaire);
@@ -167,7 +168,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
                 Rue = tbRue.Text,
                 Ville = tbVille.Text,
                 IdProvince = ddlProvince.SelectedValue.ToString(),
-                CodePostal = tbCodePostal.Text,
+                CodePostal = codepostal,
                 Telephone = telephone,
                 Cellulaire = cellulaire,
                 Courriel = tbCourriel.Text,

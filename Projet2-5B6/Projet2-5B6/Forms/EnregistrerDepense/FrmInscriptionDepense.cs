@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms.EnregistrerDepense
 {
-    public partial class FrmInscriptionDepense : Form
+    public partial class FrmInscriptionDepense : BaseForm
     {
         DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
         public FrmInscriptionDepense()
