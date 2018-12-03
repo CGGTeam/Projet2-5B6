@@ -27,10 +27,7 @@ namespace Projet2_5B6.Forms.MAJAbonnes
             LoadSexes();
             LoadAbonnements();
 
-            if (abonnementBindingSource.Current != null)
-                LoadDependants();
-            else
-                dependantDataGridView.Visible = false;
+            LoadDependants();
         }
         private void LoadSexes()
         {
@@ -68,16 +65,8 @@ namespace Projet2_5B6.Forms.MAJAbonnes
             var dependants = from unDependant in monDatatContext.Dependants
                                                 where unDependant.IdAbonnement == currentAbonnement.Id
                                                 select unDependant;
-            if (dependants.Any()) {
-                dependantBindingSource.DataSource = dependants;
-                dependantDataGridView.Visible = true;
-            }
-            else
-            {
-                dependantBindingSource.DataSource = dependants;
-                dependantDataGridView.Visible = false;
-            }
-                            
+            dependantBindingSource.DataSource = dependants;
+
         }
         private void abonnementBindingSource_CurrentChanged(object sender, EventArgs e)
         {   
@@ -120,11 +109,104 @@ namespace Projet2_5B6.Forms.MAJAbonnes
             }
             MAJAbonnes_Load(null, null);
         }
+        private bool ContientErreur()
+        {
+            bool aUneErreur = false;
+            foreach (DataGridViewRow row in this.abonnementDataGridView.Rows)
+            {
+                if (row.ErrorText.Length > 0)
+                {
+                    aUneErreur = true;
+                    break;
+                }
+                if (aUneErreur)
+                    break;
+            }
+            foreach (DataGridViewRow row in this.dependantDataGridView.Rows)
+            {
+                if (row.ErrorText.Length > 0)
+                {
+                    aUneErreur = true;
+                    break;
+                }
+                if (aUneErreur)
+                    break;
+            }
 
+            return aUneErreur;
+        }
         private void abonnementDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Erreur \n"+e, "Alerte", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            DataGridViewRow row = abonnementDataGridView.CurrentRow;
+            row.ErrorText = "Une erreur de format est présent";
+            e.Cancel = true;
 
+            btnSauvegarder.Enabled = !ContientErreur();
+        }
+
+        private void dependantDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            DataGridViewRow row = dependantDataGridView.CurrentRow;
+            row.ErrorText = "Une erreur de format est présent";
+            e.Cancel = true;
+
+            btnSauvegarder.Enabled = !ContientErreur();
+        }
+
+        private void abonnementDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            btnSauvegarder.Enabled = true;
+            string msgErreur = "";
+            DataGridViewRow row = abonnementDataGridView.Rows[e.RowIndex];
+
+            var Prenom = abonnementDataGridView[3, e.RowIndex].Value;
+            var NoCivique = abonnementDataGridView[6, e.RowIndex].Value;
+            var Rue = abonnementDataGridView[7, e.RowIndex].Value;
+            var Ville = abonnementDataGridView[8, e.RowIndex].Value;
+            var CodePostal = abonnementDataGridView[10, e.RowIndex].Value;
+            var Telephone = abonnementDataGridView[11, e.RowIndex].Value;
+            var Cellulaire = abonnementDataGridView[12, e.RowIndex].Value;
+            var Courriel = abonnementDataGridView[13, e.RowIndex].Value;
+
+            if (Prenom == null || NoCivique == null || Rue == null || Ville == null ||
+                CodePostal == null || Telephone == null || Cellulaire == null || Courriel == null)
+            {
+                msgErreur += "Il y a des champs vide" + Environment.NewLine;
+            }
+            else
+            {
+                if (Telephone.ToString().Length != 10 && Telephone.ToString()!="0")
+                {
+                    msgErreur += "Le numéroe de téléphone doit être 10 de long" + Environment.NewLine;
+                }
+                if (Cellulaire.ToString().Length != 10 && Cellulaire.ToString() != "0")
+                {
+                    msgErreur += "Le numéroe de cellulaire doit être 10 de long" + Environment.NewLine;
+                }
+            }
+
+            row.ErrorText = msgErreur;
+            btnSauvegarder.Enabled = !ContientErreur();
+        }
+        private void dependantDataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (abonnementBindingSource.Current != null)
+            {
+                btnSauvegarder.Enabled = true;
+                string msgErreur = "";
+                DataGridViewRow row = dependantDataGridView.Rows[e.RowIndex];
+
+                var Nom = dependantDataGridView[2, e.RowIndex].Value;
+                var Prenom = dependantDataGridView[3, e.RowIndex].Value;
+
+                if (Prenom == null || Nom == null)
+                {
+                    msgErreur += "Il y a des champs vide" + Environment.NewLine;
+                }
+
+                row.ErrorText = msgErreur;
+                btnSauvegarder.Enabled = !ContientErreur();
+            }
         }
     }
 }

@@ -33,8 +33,7 @@ namespace Projet2_5B6.Forms.GestionEmployes
                 tbRue,
                 tbVille,
                 tbCodePostal,
-                tbTelephone,
-                tbCellulaire,
+                tbTelephone,              
                 tbCourriel,
                 tbSalaireHoraire
             };
@@ -42,11 +41,15 @@ namespace Projet2_5B6.Forms.GestionEmployes
         private void Valider(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine(tbTelephone.Text);
-
             double salaire;
             if (!controlesAValider.All(ctrl => ctrl.Text.Trim() != "")){
                 btnConfirmer.Enabled = false;
                 errorProvider1.SetError(btnConfirmer, "Il y a des champs vides");
+            }
+            else if (!(new Regex(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$").Match(tbPassword.Text)).Success)
+            {
+                btnConfirmer.Enabled = false;
+                errorProvider1.SetError(btnConfirmer, "Le mot de passe n'est pas valide");
             }
             else if(!double.TryParse(tbSalaireHoraire.Text ,out salaire)){
                 btnConfirmer.Enabled = false;
@@ -57,10 +60,15 @@ namespace Projet2_5B6.Forms.GestionEmployes
                 btnConfirmer.Enabled = false;
                 errorProvider1.SetError(btnConfirmer, "Le salaire doit être entre 10.00 et 500.00");
             }
-            else if(!tbCellulaire.MaskCompleted || !tbTelephone.MaskCompleted)
+            else if(!tbTelephone.MaskCompleted)
             {
                 btnConfirmer.Enabled = false;
-                errorProvider1.SetError(btnConfirmer, "Les numéros de téléphone ne sont pas valide");
+                errorProvider1.SetError(btnConfirmer, "Le numéro de téléphone n'est pas valide");
+            }
+            else if((!tbCellulaire.MaskCompleted) && tbCellulaire.Text != "(   )    -")
+            {
+                btnConfirmer.Enabled = false;
+                errorProvider1.SetError(btnConfirmer, "Ls numéro de cellulaire n'est pas valide");
             }
             else if (!(new Regex(@"^([ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]){1}$").Match(tbCodePostal.Text)).Success)
             {
@@ -91,13 +99,20 @@ namespace Projet2_5B6.Forms.GestionEmployes
         }
         private void ModifierEmploye()
         {
+            Nullable<decimal> cellulaire = null;
+
             int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi);
 
             decimal.TryParse(tbSalaireHoraire.Text, out decimal salaire);
 
             decimal.TryParse(Regex.Replace(tbTelephone.Text, @"[\(\)\- ]", ""), out decimal telephone);
 
-            decimal.TryParse(Regex.Replace(tbCellulaire.Text, @"[\(\)\- ]", ""), out decimal cellulaire);
+            if (tbCellulaire.Text != "(   )    -")
+            {
+                decimal.TryParse(Regex.Replace(tbCellulaire.Text, @"[\(\)\- ]", ""), out decimal cell);
+                if(cell==0)
+                    cellulaire = cell;
+            }
 
             employeModifier.MotDePasse = tbPassword.Text;
             employeModifier.Nom = tbNom.Text;
@@ -114,20 +129,32 @@ namespace Projet2_5B6.Forms.GestionEmployes
             employeModifier.Courriel = tbCourriel.Text;
             employeModifier.SalaireHoraire = salaire;
             employeModifier.NoTypeEmploye = noTypeEmploi;
-            employeModifier.Remarque = tbRemarque.Text;
+            employeModifier.Remarque = tbRemarque.Text == ""?null: tbRemarque.Text;
+
+            new Abonnement
+            {
+                Cellulaire = null
+            };
 
             frmGestion.Enregistrer();
             this.Hide();
         }
         private void AjouterEmploye()
         {
+            Nullable<decimal> cellulaire = null;
+
             int.TryParse(ddlTypeEmploye.SelectedValue.ToString(), out int noTypeEmploi);
 
             decimal.TryParse(tbSalaireHoraire.Text, out decimal salaire);
 
             decimal.TryParse(Regex.Replace(tbTelephone.Text, @"[\(\)\- ]", ""), out decimal telephone);
 
-            decimal.TryParse(Regex.Replace(tbCellulaire.Text, @"[\(\)\- ]", ""), out decimal cellulaire);
+            if (tbCellulaire.Text != "(   )    -")
+            {
+                decimal.TryParse(Regex.Replace(tbCellulaire.Text, @"[\(\)\- ]", ""), out decimal cell);
+                if (cell == 0)
+                    cellulaire = cell;
+            }
             Employe employe = new Employe
             {
                 No = int.Parse(tbNo.Text),
@@ -153,13 +180,18 @@ namespace Projet2_5B6.Forms.GestionEmployes
             frmGestion.Enregistrer();
             this.Hide();
         }
-
+        private void LoadToolTip()
+        {
+            int VisibleTime = 5000; 
+            toolTip1.Show(" 8 caractères minimum /n 1 majuscule minimum /n 1 chiffre minimum /n 1`caractères spéciales minimum", tbPassword,0,0, VisibleTime);
+        }
         private void FrmAjoutEmployes_Load(object sender, EventArgs e)
         {
 
             LoadProvince();
             LoadTypeEmploye();
             LoadSexe();
+            LoadToolTip();
 
             if(employeModifier != null)
             {

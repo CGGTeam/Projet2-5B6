@@ -75,6 +75,18 @@ namespace Projet2_5B6.Forms
                 MessageBox.Show("Impossible de supprimer l'administrateur", "Alerte", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 peutEtreSupprime = false;
             }
+            else
+            {
+                var test = from unService in monDatatContext.Services
+                           where unService.NoEmple == selection.No
+                           select unService;
+
+                if (test.Any())
+                {
+                    MessageBox.Show("Impossible de supprimer un employé qui a des services de liés", "Alerte", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    peutEtreSupprime = false;
+                }
+            }
 
             return peutEtreSupprime;
         }

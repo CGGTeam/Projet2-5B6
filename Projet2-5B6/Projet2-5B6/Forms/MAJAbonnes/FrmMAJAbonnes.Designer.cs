@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.abonnementDataGridView = new System.Windows.Forms.DataGridView();
             this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typeAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,6 +56,7 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdAbonnement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewDependantsSexes = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -98,11 +97,11 @@
             this.abonnementDataGridView.Location = new System.Drawing.Point(2, 65);
             this.abonnementDataGridView.MultiSelect = false;
             this.abonnementDataGridView.Name = "abonnementDataGridView";
-            this.abonnementDataGridView.RowHeadersVisible = false;
             this.abonnementDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.abonnementDataGridView.Size = new System.Drawing.Size(803, 265);
             this.abonnementDataGridView.TabIndex = 1;
             this.abonnementDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.abonnementDataGridView_DataError);
+            this.abonnementDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.abonnementDataGridView_RowValidating);
             // 
             // provinceBindingSource
             // 
@@ -125,6 +124,7 @@
             this.dependantDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dependantDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn17,
+            this.IdAbonnement,
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewDependantsSexes,
@@ -134,10 +134,11 @@
             this.dependantDataGridView.Location = new System.Drawing.Point(2, 352);
             this.dependantDataGridView.MultiSelect = false;
             this.dependantDataGridView.Name = "dependantDataGridView";
-            this.dependantDataGridView.RowHeadersVisible = false;
             this.dependantDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dependantDataGridView.Size = new System.Drawing.Size(803, 208);
             this.dependantDataGridView.TabIndex = 1;
+            this.dependantDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dependantDataGridView_DataError);
+            this.dependantDataGridView.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dependantDataGridView_RowValidating);
             // 
             // dependantBindingSource
             // 
@@ -263,16 +264,12 @@
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.DataPropertyName = "Telephone";
-            dataGridViewCellStyle3.Format = "(000) 000-0000";
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn12.HeaderText = "Telephone";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Cellulaire";
-            dataGridViewCellStyle4.Format = "(000) 000-0000";
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn13.HeaderText = "Cellulaire";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
@@ -309,13 +306,19 @@
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
+            // IdAbonnement
+            // 
+            this.IdAbonnement.DataPropertyName = "IdAbonnement";
+            this.IdAbonnement.HeaderText = "IdAbonnement";
+            this.IdAbonnement.Name = "IdAbonnement";
+            this.IdAbonnement.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn18
             // 
             this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn18.DataPropertyName = "Nom";
             this.dataGridViewTextBoxColumn18.HeaderText = "Nom";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn19
             // 
@@ -399,6 +402,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdAbonnement;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewDependantsSexes;
