@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Projet2_5B6.Forms.ModifPrix
 {
-    public partial class FrmModifPrix : Form
+    public partial class FrmModifPrix : BaseForm
     {
         DataClasses1DataContext monDatatContext = new DataClasses1DataContext();
         public FrmModifPrix()
