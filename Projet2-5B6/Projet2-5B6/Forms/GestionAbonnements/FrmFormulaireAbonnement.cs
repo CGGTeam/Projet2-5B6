@@ -147,7 +147,7 @@ namespace Projet2_5B6.Forms.GestionAbonnements
             string idNouvelAbonne = tbNomAbo.Text + intPlusGrosId + "P";
 
             bool cellNull = false;
-            int cell = 0;
+            decimal cell = 0;
 
             System.Diagnostics.Debug.WriteLine(idNouvelAbonne);
             System.Diagnostics.Debug.WriteLine(tbNomAbo.Text.Trim());
@@ -158,11 +158,11 @@ namespace Projet2_5B6.Forms.GestionAbonnements
             System.Diagnostics.Debug.WriteLine(tbRueAbo.Text.Trim());
             System.Diagnostics.Debug.WriteLine(tbVilleAbo.Text.Trim());
             System.Diagnostics.Debug.WriteLine(cbProvinceAbo.SelectedValue.ToString());
-            System.Diagnostics.Debug.WriteLine(tbPostalAbo.Text.Trim());
+            System.Diagnostics.Debug.WriteLine(maskedTbPostalAbo.Text.Trim().Replace("-", ""));
             
-            System.Diagnostics.Debug.WriteLine(int.Parse(tbTelephoneAbo.Text.Replace("-", "")));
+            System.Diagnostics.Debug.WriteLine(decimal.Parse(tbTelephoneAbo.Text.Replace("-", "")));
 
-            if (int.TryParse(tbCellAbo.Text.Replace("-", ""), out cell))
+            if (decimal.TryParse(tbCellAbo.Text.Replace("-", ""), out cell))
             {
                System.Diagnostics.Debug.WriteLine(cell);
             }
@@ -189,9 +189,9 @@ namespace Projet2_5B6.Forms.GestionAbonnements
                   Rue = tbRueAbo.Text.Trim(),
                   Ville = tbVilleAbo.Text.Trim(),
                   IdProvince = cbProvinceAbo.SelectedValue.ToString(),
-                  CodePostal = tbPostalAbo.Text.Trim(),
-                  Telephone = int.Parse(tbTelephoneAbo.Text.Replace("-", "")),
-                  Cellulaire = int.Parse(tbCellAbo.Text.Replace("-", "")),
+                  CodePostal = maskedTbPostalAbo.Text.Trim().Replace("-", "").ToUpper(),
+                  Telephone = decimal.Parse(tbTelephoneAbo.Text.Replace("-", "")),
+                  Cellulaire = decimal.Parse(tbCellAbo.Text.Replace("-", "")),
                   Courriel = tbCourrielAbo.Text.Trim(),
                   NoTypeAbonnement = this.noTypeAbonnement,
                   Remarque = tbRemarqueAbo.Text.Trim()
@@ -212,8 +212,9 @@ namespace Projet2_5B6.Forms.GestionAbonnements
                   Rue = tbRueAbo.Text.Trim(),
                   Ville = tbVilleAbo.Text.Trim(),
                   IdProvince = cbProvinceAbo.SelectedValue.ToString(),
-                  CodePostal = tbPostalAbo.Text.Trim(),
-                  Telephone = int.Parse(tbTelephoneAbo.Text.Replace("-", "")),
+                  CodePostal = maskedTbPostalAbo.Text.Trim().Replace("-", ""),
+                  Telephone = decimal.Parse(tbTelephoneAbo.Text.Replace("-", "").ToUpper()),
+                  Cellulaire = null,
                   Courriel = tbCourrielAbo.Text.Trim(),
                   NoTypeAbonnement = this.noTypeAbonnement,
                   Remarque = tbRemarqueAbo.Text.Trim()
@@ -485,17 +486,17 @@ namespace Projet2_5B6.Forms.GestionAbonnements
          else errorProvider.SetError(cbProvinceAbo, "");
 
          Regex regxPostal = new Regex("^[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}[A-Z]{1}[0-9]{1}$");
-         if (tbPostalAbo.Text == "")
+         if (maskedTbPostalAbo.Text.Trim() == "")
          {
-            errorProvider.SetError(tbPostalAbo, "Le code postal ne peut pas être vide.");
+            errorProvider.SetError(maskedTbPostalAbo, "Le code postal ne peut pas être vide.");
             valide = false;
          }
-         else if (!regxPostal.IsMatch(tbPostalAbo.Text))
+         else if (!regxPostal.IsMatch(maskedTbPostalAbo.Text.Trim().Replace("-", "")))
          {
-            errorProvider.SetError(tbPostalAbo, "Format non respecté. Format : A9A9A9");
+            errorProvider.SetError(maskedTbPostalAbo, "Format non respecté. Format : A9A9A9");
             valide = false;
          }
-         else errorProvider.SetError(tbPostalAbo, "");
+         else errorProvider.SetError(maskedTbPostalAbo, "");
 
          if (this.noTypeAbonnement >= 3)
          {
