@@ -150,7 +150,7 @@
          this.Controls.Add(this.lblInformations);
          this.Controls.Add(this.lblTitre);
          this.Name = "FrmAbonnement";
-         this.Text = "FrmAbonnement";
+         this.Text = "Gestion des abonnements";
          this.Load += new System.EventHandler(this.FrmAbonnement_Load);
          ((System.ComponentModel.ISupportInitialize)(this.infosAbonnementsDetaillesDataGridView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.infosAbonnementsDetaillesBindingSource)).EndInit();

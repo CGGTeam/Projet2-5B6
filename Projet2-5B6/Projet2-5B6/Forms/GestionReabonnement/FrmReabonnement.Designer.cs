@@ -32,6 +32,8 @@
          this.lblInformations = new System.Windows.Forms.Label();
          this.lblTitre = new System.Windows.Forms.Label();
          this.idEtNomCompletAboDataGridView = new System.Windows.Forms.DataGridView();
+         this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.NomComplet = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.gbAbonne = new System.Windows.Forms.GroupBox();
          this.label2 = new System.Windows.Forms.Label();
          this.btnRenouveler = new System.Windows.Forms.Button();
@@ -39,8 +41,6 @@
          this.lblNomAbo = new System.Windows.Forms.Label();
          this.label1 = new System.Windows.Forms.Label();
          this.idEtNomCompletAboBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-         this.NomComplet = new System.Windows.Forms.DataGridViewTextBoxColumn();
          ((System.ComponentModel.ISupportInitialize)(this.idEtNomCompletAboDataGridView)).BeginInit();
          this.gbAbonne.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.idEtNomCompletAboBindingSource)).BeginInit();
@@ -84,6 +84,19 @@
          this.idEtNomCompletAboDataGridView.Size = new System.Drawing.Size(295, 259);
          this.idEtNomCompletAboDataGridView.TabIndex = 10;
          this.idEtNomCompletAboDataGridView.SelectionChanged += new System.EventHandler(this.idEtNomCompletAboDataGridView_SelectionChanged);
+         // 
+         // Id
+         // 
+         this.Id.HeaderText = "Id";
+         this.Id.Name = "Id";
+         this.Id.ReadOnly = true;
+         // 
+         // NomComplet
+         // 
+         this.NomComplet.HeaderText = "Nom complet";
+         this.NomComplet.Name = "NomComplet";
+         this.NomComplet.ReadOnly = true;
+         this.NomComplet.Width = 150;
          // 
          // gbAbonne
          // 
@@ -151,19 +164,6 @@
          // 
          this.idEtNomCompletAboBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.IdEtNomCompletAbo);
          // 
-         // Id
-         // 
-         this.Id.HeaderText = "Id";
-         this.Id.Name = "Id";
-         this.Id.ReadOnly = true;
-         // 
-         // NomComplet
-         // 
-         this.NomComplet.HeaderText = "Nom complet";
-         this.NomComplet.Name = "NomComplet";
-         this.NomComplet.ReadOnly = true;
-         this.NomComplet.Width = 150;
-         // 
          // FrmReabonnement
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,7 +174,7 @@
          this.Controls.Add(this.lblInformations);
          this.Controls.Add(this.lblTitre);
          this.Name = "FrmReabonnement";
-         this.Text = "FrmReabonnement";
+         this.Text = "Gestion des réabonnements";
          this.Load += new System.EventHandler(this.FrmReabonnement_Load);
          ((System.ComponentModel.ISupportInitialize)(this.idEtNomCompletAboDataGridView)).EndInit();
          this.gbAbonne.ResumeLayout(false);

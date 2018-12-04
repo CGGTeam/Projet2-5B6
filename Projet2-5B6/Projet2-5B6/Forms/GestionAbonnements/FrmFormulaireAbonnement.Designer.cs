@@ -643,6 +643,7 @@
          // 
          this.cbProvinceAbo.DataSource = this.provinceBindingSource;
          this.cbProvinceAbo.DisplayMember = "Nom";
+         this.cbProvinceAbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
          this.cbProvinceAbo.FormattingEnabled = true;
          this.cbProvinceAbo.Location = new System.Drawing.Point(470, 313);
          this.cbProvinceAbo.Name = "cbProvinceAbo";
@@ -1004,7 +1005,7 @@
          this.Controls.Add(this.lblInformations);
          this.Controls.Add(this.lblTitre);
          this.Name = "FrmFormulaireAbonnement";
-         this.Text = "FrmFormulaireAbonnement";
+         this.Text = "Nouvel abonnement";
          this.Load += new System.EventHandler(this.FrmFormulaireAbonnement_Load);
          this.gbListeEnfants.ResumeLayout(false);
          this.gbListeEnfants.PerformLayout();

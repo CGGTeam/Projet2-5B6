@@ -35,6 +35,12 @@
          Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
          Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
          Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+         this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.ObjetAbonnementsMoiAnneeCouranteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.ObjetPartiesJoueesParAnneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.ObjetPartiesJoueesParMoisEtTerrainBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.ObjetDepensesParAnneeEtAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         this.ObjetDepensesParMoisEtAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -48,12 +54,12 @@
          this.reportViewer5 = new Microsoft.Reporting.WinForms.ReportViewer();
          this.tabPage6 = new System.Windows.Forms.TabPage();
          this.reportViewer6 = new Microsoft.Reporting.WinForms.ReportViewer();
-         this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.ObjetAbonnementsMoiAnneeCouranteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.ObjetPartiesJoueesParAnneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.ObjetPartiesJoueesParMoisEtTerrainBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.ObjetDepensesParAnneeEtAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-         this.ObjetDepensesParMoisEtAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsMoiAnneeCouranteBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParAnneeBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParMoisEtTerrainBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParAnneeEtAbonnementBindingSource)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParMoisEtAbonnementBindingSource)).BeginInit();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          this.tabPage2.SuspendLayout();
@@ -61,13 +67,31 @@
          this.tabPage4.SuspendLayout();
          this.tabPage5.SuspendLayout();
          this.tabPage6.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsMoiAnneeCouranteBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParAnneeBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParMoisEtTerrainBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParAnneeEtAbonnementBindingSource)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParMoisEtAbonnementBindingSource)).BeginInit();
          this.SuspendLayout();
+         // 
+         // ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource
+         // 
+         this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetAbonnementsParAnneeEtParTypeAbonnement);
+         // 
+         // ObjetAbonnementsMoiAnneeCouranteBindingSource
+         // 
+         this.ObjetAbonnementsMoiAnneeCouranteBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetAbonnementsMoiAnneeCourante);
+         // 
+         // ObjetPartiesJoueesParAnneeBindingSource
+         // 
+         this.ObjetPartiesJoueesParAnneeBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParAnnee);
+         // 
+         // ObjetPartiesJoueesParMoisEtTerrainBindingSource
+         // 
+         this.ObjetPartiesJoueesParMoisEtTerrainBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParMoisEtTerrain);
+         // 
+         // ObjetDepensesParAnneeEtAbonnementBindingSource
+         // 
+         this.ObjetDepensesParAnneeEtAbonnementBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetDepensesParAnneeEtAbonnement);
+         // 
+         // ObjetDepensesParMoisEtAbonnementBindingSource
+         // 
+         this.ObjetDepensesParMoisEtAbonnementBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetDepensesParMoisEtAbonnement);
          // 
          // tabControl1
          // 
@@ -228,30 +252,6 @@
          this.reportViewer6.Size = new System.Drawing.Size(1593, 591);
          this.reportViewer6.TabIndex = 0;
          // 
-         // ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource
-         // 
-         this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetAbonnementsParAnneeEtParTypeAbonnement);
-         // 
-         // ObjetAbonnementsMoiAnneeCouranteBindingSource
-         // 
-         this.ObjetAbonnementsMoiAnneeCouranteBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetAbonnementsMoiAnneeCourante);
-         // 
-         // ObjetPartiesJoueesParAnneeBindingSource
-         // 
-         this.ObjetPartiesJoueesParAnneeBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParAnnee);
-         // 
-         // ObjetPartiesJoueesParMoisEtTerrainBindingSource
-         // 
-         this.ObjetPartiesJoueesParMoisEtTerrainBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetPartiesJoueesParMoisEtTerrain);
-         // 
-         // ObjetDepensesParAnneeEtAbonnementBindingSource
-         // 
-         this.ObjetDepensesParAnneeEtAbonnementBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetDepensesParAnneeEtAbonnement);
-         // 
-         // ObjetDepensesParMoisEtAbonnementBindingSource
-         // 
-         this.ObjetDepensesParMoisEtAbonnementBindingSource.DataSource = typeof(Projet2_5B6.ObjetsLINQ.ObjetDepensesParMoisEtAbonnement);
-         // 
          // FrmStatistiques
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,8 +259,14 @@
          this.ClientSize = new System.Drawing.Size(1619, 650);
          this.Controls.Add(this.tabControl1);
          this.Name = "FrmStatistiques";
-         this.Text = "FrmStatistiques";
+         this.Text = "Visualisation des statistiques";
          this.Load += new System.EventHandler(this.FrmStatistiques_Load);
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsMoiAnneeCouranteBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParAnneeBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParMoisEtTerrainBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParAnneeEtAbonnementBindingSource)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParMoisEtAbonnementBindingSource)).EndInit();
          this.tabControl1.ResumeLayout(false);
          this.tabPage1.ResumeLayout(false);
          this.tabPage2.ResumeLayout(false);
@@ -268,12 +274,6 @@
          this.tabPage4.ResumeLayout(false);
          this.tabPage5.ResumeLayout(false);
          this.tabPage6.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsParAnneeEtParTypeAbonnementBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetAbonnementsMoiAnneeCouranteBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParAnneeBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetPartiesJoueesParMoisEtTerrainBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParAnneeEtAbonnementBindingSource)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.ObjetDepensesParMoisEtAbonnementBindingSource)).EndInit();
          this.ResumeLayout(false);
 
       }
